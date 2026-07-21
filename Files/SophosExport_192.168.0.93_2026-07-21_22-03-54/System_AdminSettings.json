@@ -1,0 +1,23 @@
+﻿{
+    "HostnameSettings.HostName":  "V01001CH43KR92C",
+    "HostnameSettings.HostNameDesc":  "",
+    "WebAdminSettings.Certificate":  "ApplianceCertificate",
+    "WebAdminSettings.HTTPSport":  "4444",
+    "WebAdminSettings.UserPortalHTTPSPort":  "4443",
+    "WebAdminSettings.VPNPortalHTTPSPort":  "443",
+    "WebAdminSettings.PortalRedirectMode":  "ip",
+    "WebAdminSettings.PortalCustomHostname":  "",
+    "LoginSecurity.LogoutSession":  "Disable",
+    "LoginSecurity.BlockLogin":  "Enable",
+    "LoginSecurity.BlockLoginSettings.UnsucccessfulAttempt":  "5",
+    "LoginSecurity.BlockLoginSettings.Duration":  "60",
+    "LoginSecurity.BlockLoginSettings.ForMinutes":  "5",
+    "PasswordComplexitySettings.PasswordComplexityCheck":  "Enable",
+    "PasswordComplexitySettings.PasswordComplexity.MinimumPasswordLength":  "Enable",
+    "PasswordComplexitySettings.PasswordComplexity.IncludeAlphabeticCharacters":  "Enable",
+    "PasswordComplexitySettings.PasswordComplexity.IncludeNumericCharacter":  "Enable",
+    "PasswordComplexitySettings.PasswordComplexity.IncludeSpecialCharacter":  "Enable",
+    "PasswordComplexitySettings.PasswordComplexity.MinimumPasswordLengthValue":  "10",
+    "LoginDisclaimer":  "Disable",
+    "DefaultConfigurationLanguage":  "German"
+}

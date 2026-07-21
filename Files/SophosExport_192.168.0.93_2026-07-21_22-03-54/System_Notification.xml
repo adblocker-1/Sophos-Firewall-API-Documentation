@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Response APIVersion="2105.1" IPS_CAT_VER="0" IS_WIFI6="0">
+  <Login>
+    <status>Authentication Successful</status>
+  </Login>
+  <Notification transactionid="">
+    <SenderAddress>asd@asd.de</SenderAddress>
+    <NotificationServer>0</NotificationServer>
+    <AuthenticationRequired>Disable</AuthenticationRequired>
+    <Port>24</Port>
+    <ConnectionSecurity/>
+    <Password/>
+    <MailServer>127.0.0.1</MailServer>
+    <Recepient>asd@asd.de</Recepient>
+    <Username/>
+    <ManagementInterface/>
+    <IPFamily/>
+  </Notification>
+</Response>

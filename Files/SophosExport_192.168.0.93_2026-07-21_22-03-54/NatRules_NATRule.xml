@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Response APIVersion="2105.1" IPS_CAT_VER="0" IS_WIFI6="0">
+  <Login>
+    <status>Authentication Successful</status>
+  </Login>
+  <NATRule transactionid="">
+    <Name>#NAT_Default_Network_Policy</Name>
+    <Description/>
+    <IPFamily>IPv4</IPFamily>
+    <Status>Enable</Status>
+    <Position>Top</Position>
+    <LinkedFirewallrule>#Default_Network_Policy</LinkedFirewallrule>
+    <TranslatedDestination>Original</TranslatedDestination>
+    <TranslatedService>Original</TranslatedService>
+    <OverrideInterfaceNATPolicy>Disable</OverrideInterfaceNATPolicy>
+    <TranslatedSource>MASQ</TranslatedSource>
+  </NATRule>
+  <NATRule transactionid="">
+    <Name>Auto added NAT rule for MTA</Name>
+    <Description>This rule was added automatically by SFOS MTA.</Description>
+    <IPFamily>IPv4</IPFamily>
+    <Status>Enable</Status>
+    <Position>After</Position>
+    <LinkedFirewallrule>Auto added firewall policy for MTA</LinkedFirewallrule>
+    <TranslatedDestination>Original</TranslatedDestination>
+    <TranslatedService>Original</TranslatedService>
+    <OverrideInterfaceNATPolicy>Disable</OverrideInterfaceNATPolicy>
+    <After>
+      <Name>#NAT_Default_Network_Policy</Name>
+    </After>
+    <TranslatedSource>MASQ</TranslatedSource>
+  </NATRule>
+</Response>

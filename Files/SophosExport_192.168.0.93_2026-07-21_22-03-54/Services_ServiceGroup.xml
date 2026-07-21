@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Response APIVersion="2105.1" IPS_CAT_VER="0" IS_WIFI6="0">
+  <Login>
+    <status>Authentication Successful</status>
+  </Login>
+  <ServiceGroup transactionid="">
+    <Name>PPTP_GROUP</Name>
+    <Description>TCP (1:65535) / (1723), IP Protocol No 47 (GRE)</Description>
+    <ServiceList>
+      <Service>GRE</Service>
+      <Service>PPTP</Service>
+    </ServiceList>
+  </ServiceGroup>
+</Response>

@@ -1,0 +1,50 @@
+﻿[
+    {
+        "Name":  "Work hours (5 Day week)",
+        "Description":  "5 days working week 10:00 to 19:00.",
+        "Type":  "Recurring",
+        "ScheduleDetails.ScheduleDetail.Days":  "Week Days",
+        "ScheduleDetails.ScheduleDetail.StartTime":  "10:00",
+        "ScheduleDetails.ScheduleDetail.StopTime":  "19:00"
+    },
+    {
+        "Name":  "Work hours (6 Day week)",
+        "Description":  "6 days working week 10:00 - 19:00 i.e. Monday to Saturday",
+        "Type":  "Recurring",
+        "ScheduleDetails.ScheduleDetail.Days":  "Weekdays Including Saturday",
+        "ScheduleDetails.ScheduleDetail.StartTime":  "10:00",
+        "ScheduleDetails.ScheduleDetail.StopTime":  "19:00"
+    },
+    {
+        "Name":  "All Time on Weekdays",
+        "Description":  "All Time on Weekdays Mon - Fri",
+        "Type":  "Recurring",
+        "ScheduleDetails.ScheduleDetail.Days":  "Week Days",
+        "ScheduleDetails.ScheduleDetail.StartTime":  "00:00",
+        "ScheduleDetails.ScheduleDetail.StopTime":  "23:59"
+    },
+    {
+        "Name":  "All Time on Weekends",
+        "Description":  "All Time on Weekends",
+        "Type":  "Recurring",
+        "ScheduleDetails.ScheduleDetail.Days":  "Sunday, Saturday",
+        "ScheduleDetails.ScheduleDetail.StartTime":  "00:00, 00:00",
+        "ScheduleDetails.ScheduleDetail.StopTime":  "23:59, 23:59"
+    },
+    {
+        "Name":  "All Time on Sunday",
+        "Description":  "All Time on Sunday",
+        "Type":  "Recurring",
+        "ScheduleDetails.ScheduleDetail.Days":  "Sunday",
+        "ScheduleDetails.ScheduleDetail.StartTime":  "00:00",
+        "ScheduleDetails.ScheduleDetail.StopTime":  "23:59"
+    },
+    {
+        "Name":  "All Days 10:00 to 19:00",
+        "Description":  "All Days 10:00 to 19:00",
+        "Type":  "Recurring",
+        "ScheduleDetails.ScheduleDetail.Days":  "All Days of week",
+        "ScheduleDetails.ScheduleDetail.StartTime":  "10:00",
+        "ScheduleDetails.ScheduleDetail.StopTime":  "19:00"
+    }
+]

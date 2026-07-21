@@ -1,0 +1,9 @@
+﻿{
+    "Location":  "",
+    "Name":  "",
+    "ContactPerson":  "",
+    "Description":  "",
+    "Configuration":  "Disable",
+    "AgentPort":  "161",
+    "ManagerPort":  "162"
+}

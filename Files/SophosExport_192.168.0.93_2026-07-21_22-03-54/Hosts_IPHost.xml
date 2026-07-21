@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Response APIVersion="2105.1" IPS_CAT_VER="0" IS_WIFI6="0">
+  <Login>
+    <status>Authentication Successful</status>
+  </Login>
+  <IPHost transactionid="">
+    <Name>##ALL_RW</Name>
+    <Description/>
+    <IPFamily>IPv4</IPFamily>
+    <HostType>System Host</HostType>
+  </IPHost>
+  <IPHost transactionid="">
+    <Name>##ALL_IPSEC_RW</Name>
+    <Description/>
+    <IPFamily>IPv4</IPFamily>
+    <HostType>System Host</HostType>
+  </IPHost>
+  <IPHost transactionid="">
+    <Name>##ALL_SSLVPN_RW</Name>
+    <Description/>
+    <IPFamily>IPv4</IPFamily>
+    <HostType>System Host</HostType>
+  </IPHost>
+  <IPHost transactionid="">
+    <Name>##ALL_RW6</Name>
+    <Description/>
+    <IPFamily>IPv6</IPFamily>
+    <HostType>System Host</HostType>
+  </IPHost>
+  <IPHost transactionid="">
+    <Name>##ALL_SSLVPN_RW6</Name>
+    <Description/>
+    <IPFamily>IPv6</IPFamily>
+    <HostType>System Host</HostType>
+  </IPHost>
+  <IPHost transactionid="">
+    <Name>##ALL_IPSEC_RW6</Name>
+    <Description/>
+    <IPFamily>IPv6</IPFamily>
+    <HostType>System Host</HostType>
+  </IPHost>
+  <IPHost transactionid="">
+    <Name>SecurityHeartbeat_over_VPN</Name>
+    <Description/>
+    <IPFamily>IPv4</IPFamily>
+    <HostType>IP</HostType>
+    <IPAddress>52.5.76.173</IPAddress>
+  </IPHost>
+  <IPHost transactionid="">
+    <Name>Internet IPv4 (1-9)</Name>
+    <Description/>
+    <IPFamily>IPv4</IPFamily>
+    <HostType>IPRange</HostType>
+    <HostGroupList>
+      <HostGroup>Internet IPv4 group</HostGroup>
+    </HostGroupList>
+    <StartIPAddress>1.0.0.0</StartIPAddress>
+    <EndIPAddress>9.255.255.255</EndIPAddress>
+  </IPHost>
+  <IPHost transactionid="">
+    <Name>Internet IPv4 (11-126)</Name>
+    <Description/>
+    <IPFamily>IPv4</IPFamily>
+    <HostType>IPRange</HostType>
+    <HostGroupList>
+      <HostGroup>Internet IPv4 group</HostGroup>
+    </HostGroupList>
+    <StartIPAddress>11.0.0.0</StartIPAddress>
+    <EndIPAddress>126.255.255.255</EndIPAddress>
+  </IPHost>
+  <IPHost transactionid="">
+    <Name>Internet IPv4 (169-172)</Name>
+    <Description/>
+    <IPFamily>IPv4</IPFamily>
+    <HostType>IPRange</HostType>
+    <HostGroupList>
+      <HostGroup>Internet IPv4 group</HostGroup>
+    </HostGroupList>
+    <StartIPAddress>169.255.0.0</StartIPAddress>
+    <EndIPAddress>172.15.255.255</EndIPAddress>
+  </IPHost>
+  <IPHost transactionid="">
+    <Name>Internet IPv4 (192-192.88)</Name>
+    <Description/>
+    <IPFamily>IPv4</IPFamily>
+    <HostType>IPRange</HostType>
+    <HostGroupList>
+      <HostGroup>Internet IPv4 group</HostGroup>
+    </HostGroupList>
+    <StartIPAddress>192.0.3.0</StartIPAddress>
+    <EndIPAddress>192.88.98.255</EndIPAddress>
+  </IPHost>
+  <IPHost transactionid="">
+    <Name>Internet IPv4 (192.88-192.167)</Name>
+    <Description/>
+    <IPFamily>IPv4</IPFamily>
+    <HostType>IPRange</HostType>
+    <HostGroupList>
+      <HostGroup>Internet IPv4 group</HostGroup>
+    </HostGroupList>
+    <StartIPAddress>192.88.100.0</StartIPAddress>
+    <EndIPAddress>192.167.255.255</EndIPAddress>
+  </IPHost>
+  <IPHost transactionid="">
+    <Name>Internet IPv4 (192.169-198.17)</Name>
+    <Description/>
+    <IPFamily>IPv4</IPFamily>
+    <HostType>IPRange</HostType>
+    <HostGroupList>
+      <HostGroup>Internet IPv4 group</HostGroup>
+    </HostGroupList>
+    <StartIPAddress>192.169.0.0</StartIPAddress>
+    <EndIPAddress>198.17.255.255</EndIPAddress>
+  </IPHost>
+  <IPHost transactionid="">
+    <Name>Internet IPv4 (198.20-198.51)</Name>
+    <Description/>
+    <IPFamily>IPv4</IPFamily>
+    <HostType>IPRange</HostType>
+    <HostGroupList>
+      <HostGroup>Internet IPv4 group</HostGroup>
+    </HostGroupList>
+    <StartIPAddress>198.20.0.0</StartIPAddress>
+    <EndIPAddress>198.51.99.255</EndIPAddress>
+  </IPHost>
+  <IPHost transactionid="">
+    <Name>Internet IPv4 (198.51-203.0)</Name>
+    <Description/>
+    <IPFamily>IPv4</IPFamily>
+    <HostType>IPRange</HostType>
+    <HostGroupList>
+      <HostGroup>Internet IPv4 group</HostGroup>
+    </HostGroupList>
+    <StartIPAddress>198.51.101.0</StartIPAddress>
+    <EndIPAddress>203.0.112.255</EndIPAddress>
+  </IPHost>
+  <IPHost transactionid="">
+    <Name>Internet IPv4 (203.0-223)</Name>
+    <Description/>
+    <IPFamily>IPv4</IPFamily>
+    <HostType>IPRange</HostType>
+    <HostGroupList>
+      <HostGroup>Internet IPv4 group</HostGroup>
+    </HostGroupList>
+    <StartIPAddress>203.0.114.1</StartIPAddress>
+    <EndIPAddress>223.255.255.255</EndIPAddress>
+  </IPHost>
+  <IPHost transactionid="">
+    <Name>Internet IPv4 (128-169)</Name>
+    <Description/>
+    <IPFamily>IPv4</IPFamily>
+    <HostType>IPRange</HostType>
+    <HostGroupList>
+      <HostGroup>Internet IPv4 group</HostGroup>
+    </HostGroupList>
+    <StartIPAddress>128.0.0.0</StartIPAddress>
+    <EndIPAddress>169.253.255.255</EndIPAddress>
+  </IPHost>
+  <IPHost transactionid="">
+    <Name>Internet IPv4 (192-192.0)</Name>
+    <Description/>
+    <IPFamily>IPv4</IPFamily>
+    <HostType>IPRange</HostType>
+    <HostGroupList>
+      <HostGroup>Internet IPv4 group</HostGroup>
+    </HostGroupList>
+    <StartIPAddress>192.0.1.0</StartIPAddress>
+    <EndIPAddress>192.0.1.255</EndIPAddress>
+  </IPHost>
+  <IPHost transactionid="">
+    <Name>Internet IPv4 (172-191)</Name>
+    <Description/>
+    <IPFamily>IPv4</IPFamily>
+    <HostType>IPRange</HostType>
+    <HostGroupList>
+      <HostGroup>Internet IPv4 group</HostGroup>
+    </HostGroupList>
+    <StartIPAddress>172.32.0.0</StartIPAddress>
+    <EndIPAddress>191.255.255.255</EndIPAddress>
+  </IPHost>
+  <IPHost transactionid="">
+    <Name>#Port1</Name>
+    <Description/>
+    <IPFamily>IPv4</IPFamily>
+    <HostType>System Host</HostType>
+  </IPHost>
+  <IPHost transactionid="">
+    <Name>#Port2</Name>
+    <Description/>
+    <IPFamily>IPv4</IPFamily>
+    <HostType>System Host</HostType>
+  </IPHost>
+  <IPHost transactionid="">
+    <Name>0.0.0.0</Name>
+    <Description/>
+    <IPFamily>IPv4</IPFamily>
+    <HostType>Network</HostType>
+    <IPAddress>192.0.0.0</IPAddress>
+    <Subnet>255.0.0.0</Subnet>
+  </IPHost>
+</Response>

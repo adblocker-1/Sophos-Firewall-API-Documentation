@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Response APIVersion="2105.1" IPS_CAT_VER="0" IS_WIFI6="0">
+  <Login>
+    <status>Authentication Successful</status>
+  </Login>
+  <DHCPServer transactionid="">
+    <Name>GuestAccess_DHCP</Name>
+    <Status>1</Status>
+    <Interface>GuestAP</Interface>
+    <IPLease>
+      <IP>10.255.0.2-10.255.0.254</IP>
+    </IPLease>
+    <ConflictDetection>Disable</ConflictDetection>
+    <LeaseForRelay>Disable</LeaseForRelay>
+    <SubnetMask>255.255.255.0</SubnetMask>
+    <DomainName/>
+    <DefaultLeaseTime>1440</DefaultLeaseTime>
+    <MaxLeaseTime>2880</MaxLeaseTime>
+    <UseApplianceDNSSettings>Disable</UseApplianceDNSSettings>
+    <PrimaryDNSServer>10.255.0.1</PrimaryDNSServer>
+    <SecondaryDNSServer/>
+    <PrimaryWINSServer/>
+    <SecondaryWINSServer/>
+    <BootServer/>
+    <BootFile/>
+    <Gateway>10.255.0.1</Gateway>
+    <UseInterfaceIPasGateway>UseInterfaceIPAsGateway</UseInterfaceIPasGateway>
+  </DHCPServer>
+</Response>

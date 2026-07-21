@@ -1,0 +1,5 @@
+﻿{
+    "Name":  "PPTP_GROUP",
+    "Description":  "TCP (1:65535) / (1723), IP Protocol No 47 (GRE)",
+    "ServiceList.Service":  "GRE, PPTP"
+}

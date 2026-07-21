@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Response APIVersion="2105.1" IPS_CAT_VER="0" IS_WIFI6="0">
+  <Login>
+    <status>Authentication Successful</status>
+  </Login>
+  <Zone transactionid="">
+    <Name>LAN</Name>
+    <Type>LAN</Type>
+    <Description/>
+    <ApplianceAccess>
+      <AdminServices>
+        <HTTPS>Enable</HTTPS>
+        <SSH>Enable</SSH>
+      </AdminServices>
+      <AuthenticationServices>
+        <ClientAuthentication>Enable</ClientAuthentication>
+        <CaptivePortal>Enable</CaptivePortal>
+        <RadiusSSO>Enable</RadiusSSO>
+        <ChromebookSSO>Enable</ChromebookSSO>
+      </AuthenticationServices>
+      <NetworkServices>
+        <DNS>Enable</DNS>
+        <Ping>Enable</Ping>
+      </NetworkServices>
+      <OtherServices>
+        <WebProxy>Enable</WebProxy>
+        <UserPortal>Enable</UserPortal>
+        <WirelessProtection>Enable</WirelessProtection>
+        <SMTPRelay>Enable</SMTPRelay>
+        <SNMP>Enable</SNMP>
+      </OtherServices>
+      <VPNServices>
+        <SSLVPN>Enable</SSLVPN>
+      </VPNServices>
+    </ApplianceAccess>
+  </Zone>
+  <Zone transactionid="">
+    <Name>WAN</Name>
+    <Type>WAN</Type>
+    <Description/>
+  </Zone>
+  <Zone transactionid="">
+    <Name>DMZ</Name>
+    <Type>DMZ</Type>
+    <Description/>
+    <ApplianceAccess>
+      <OtherServices>
+        <UserPortal>Enable</UserPortal>
+        <SNMP>Enable</SNMP>
+      </OtherServices>
+      <VPNServices>
+        <SSLVPN>Enable</SSLVPN>
+      </VPNServices>
+    </ApplianceAccess>
+  </Zone>
+  <Zone transactionid="">
+    <Name>LOCAL</Name>
+    <Type>LOCAL</Type>
+    <Description/>
+  </Zone>
+  <Zone transactionid="">
+    <Name>VPN</Name>
+    <Type>VPN</Type>
+    <Description/>
+    <ApplianceAccess>
+      <OtherServices>
+        <SNMP>Enable</SNMP>
+      </OtherServices>
+    </ApplianceAccess>
+  </Zone>
+  <Zone transactionid="">
+    <Name>Discover</Name>
+    <Type>Discover</Type>
+    <Description/>
+  </Zone>
+  <Zone transactionid="">
+    <Name>WiFi</Name>
+    <Type>LAN</Type>
+    <Description/>
+    <ApplianceAccess>
+      <AdminServices>
+        <HTTPS>Enable</HTTPS>
+        <SSH>Enable</SSH>
+      </AdminServices>
+      <AuthenticationServices>
+        <ClientAuthentication>Enable</ClientAuthentication>
+        <CaptivePortal>Enable</CaptivePortal>
+        <RadiusSSO>Enable</RadiusSSO>
+        <ChromebookSSO>Enable</ChromebookSSO>
+      </AuthenticationServices>
+      <NetworkServices>
+        <DNS>Enable</DNS>
+        <Ping>Enable</Ping>
+      </NetworkServices>
+      <OtherServices>
+        <WebProxy>Enable</WebProxy>
+        <UserPortal>Enable</UserPortal>
+        <WirelessProtection>Enable</WirelessProtection>
+        <SMTPRelay>Enable</SMTPRelay>
+        <SNMP>Enable</SNMP>
+      </OtherServices>
+      <VPNServices>
+        <SSLVPN>Enable</SSLVPN>
+      </VPNServices>
+    </ApplianceAccess>
+  </Zone>
+</Response>

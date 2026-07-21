@@ -1,0 +1,1748 @@
+﻿[
+    {
+        "Name":  "*.content.force.com",
+        "Description":  "",
+        "FQDN":  "*.content.force.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "Salesforce"
+    },
+    {
+        "Name":  "*.force.com",
+        "Description":  "",
+        "FQDN":  "*.force.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "Salesforce"
+    },
+    {
+        "Name":  "*.salesforce.com",
+        "Description":  "",
+        "FQDN":  "*.salesforce.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "Salesforce"
+    },
+    {
+        "Name":  "*.staticforce.com",
+        "Description":  "",
+        "FQDN":  "*.staticforce.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "Salesforce"
+    },
+    {
+        "Name":  "*.db.tt",
+        "Description":  "",
+        "FQDN":  "*.db.tt",
+        "FQDNHostGroupList.FQDNHostGroup":  "Dropbox"
+    },
+    {
+        "Name":  "*.dropbox.com",
+        "Description":  "",
+        "FQDN":  "*.dropbox.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "Dropbox"
+    },
+    {
+        "Name":  "*.dropboxapi.com",
+        "Description":  "",
+        "FQDN":  "*.dropboxapi.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "Dropbox"
+    },
+    {
+        "Name":  "*.dropboxbusiness.com",
+        "Description":  "",
+        "FQDN":  "*.dropboxbusiness.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "Dropbox"
+    },
+    {
+        "Name":  "*.dropboxdocs.com",
+        "Description":  "",
+        "FQDN":  "*.dropboxdocs.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "Dropbox"
+    },
+    {
+        "Name":  "*.dropboxforums.com",
+        "Description":  "",
+        "FQDN":  "*.dropboxforums.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "Dropbox"
+    },
+    {
+        "Name":  "*.dropboxforum.com",
+        "Description":  "",
+        "FQDN":  "*.dropboxforum.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "Dropbox"
+    },
+    {
+        "Name":  "*.dropboxinsiders.com",
+        "Description":  "",
+        "FQDN":  "*.dropboxinsiders.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "Dropbox"
+    },
+    {
+        "Name":  "*.dropboxmail.com",
+        "Description":  "",
+        "FQDN":  "*.dropboxmail.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "Dropbox"
+    },
+    {
+        "Name":  "*.dropboxpartners.com",
+        "Description":  "",
+        "FQDN":  "*.dropboxpartners.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "Dropbox"
+    },
+    {
+        "Name":  "*.dropboxstatic.com",
+        "Description":  "",
+        "FQDN":  "*.dropboxstatic.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "Dropbox"
+    },
+    {
+        "Name":  "*.dropbox.zendesk.com",
+        "Description":  "",
+        "FQDN":  "*.dropbox.zendesk.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "Dropbox"
+    },
+    {
+        "Name":  "*.getdropbox.com",
+        "Description":  "",
+        "FQDN":  "*.getdropbox.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "Dropbox"
+    },
+    {
+        "Name":  "*.box.com",
+        "Description":  "",
+        "FQDN":  "*.box.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "box.com"
+    },
+    {
+        "Name":  "*.boxcloud.com",
+        "Description":  "",
+        "FQDN":  "*.boxcloud.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "box.com"
+    },
+    {
+        "Name":  "*.boxlocalhost.com",
+        "Description":  "",
+        "FQDN":  "*.boxlocalhost.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "box.com"
+    },
+    {
+        "Name":  "*.box.net",
+        "Description":  "",
+        "FQDN":  "*.box.net",
+        "FQDNHostGroupList.FQDNHostGroup":  "box.com"
+    },
+    {
+        "Name":  "*.boxcdn.net",
+        "Description":  "",
+        "FQDN":  "*.boxcdn.net",
+        "FQDNHostGroupList.FQDNHostGroup":  "box.com"
+    },
+    {
+        "Name":  "*.join.me",
+        "Description":  "",
+        "FQDN":  "*.join.me",
+        "FQDNHostGroupList.FQDNHostGroup":  "join.me"
+    },
+    {
+        "Name":  "*.logme.in",
+        "Description":  "",
+        "FQDN":  "*.logme.in",
+        "FQDNHostGroupList.FQDNHostGroup":  "logme.in"
+    },
+    {
+        "Name":  "*.assist.com",
+        "Description":  "",
+        "FQDN":  "*.assist.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "GotoAssist"
+    },
+    {
+        "Name":  "*.gotoassist.me",
+        "Description":  "",
+        "FQDN":  "*.gotoassist.me",
+        "FQDNHostGroupList.FQDNHostGroup":  "GotoAssist"
+    },
+    {
+        "Name":  "*.gotoassist.at",
+        "Description":  "",
+        "FQDN":  "*.gotoassist.at",
+        "FQDNHostGroupList.FQDNHostGroup":  "GotoAssist"
+    },
+    {
+        "Name":  "*.gotoassist.com",
+        "Description":  "",
+        "FQDN":  "*.gotoassist.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "GotoAssist"
+    },
+    {
+        "Name":  "*.go2assist.me",
+        "Description":  "",
+        "FQDN":  "*.go2assist.me",
+        "FQDNHostGroupList.FQDNHostGroup":  "GotoAssist"
+    },
+    {
+        "Name":  "*.fastsupport.com",
+        "Description":  "",
+        "FQDN":  "*.fastsupport.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "GotoAssist"
+    },
+    {
+        "Name":  "*.helpme.net",
+        "Description":  "",
+        "FQDN":  "*.helpme.net",
+        "FQDNHostGroupList.FQDNHostGroup":  "GotoAssist"
+    },
+    {
+        "Name":  "*.gofastchat.com",
+        "Description":  "",
+        "FQDN":  "*.gofastchat.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "GotoAssist"
+    },
+    {
+        "Name":  "*.gotowebinar.com",
+        "Description":  "",
+        "FQDN":  "*.gotowebinar.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "GotoWebinar"
+    },
+    {
+        "Name":  "*.joinwebinar.com",
+        "Description":  "",
+        "FQDN":  "*.joinwebinar.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "GotoWebinar"
+    },
+    {
+        "Name":  "*.joingotomeeting.com",
+        "Description":  "",
+        "FQDN":  "*.joingotomeeting.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "GotoMeeting"
+    },
+    {
+        "Name":  "*.gotomeet.me",
+        "Description":  "",
+        "FQDN":  "*.gotomeet.me",
+        "FQDNHostGroupList.FQDNHostGroup":  "GotoMeeting"
+    },
+    {
+        "Name":  "*.gotomeet.at",
+        "Description":  "",
+        "FQDN":  "*.gotomeet.at",
+        "FQDNHostGroupList.FQDNHostGroup":  "GotoMeeting"
+    },
+    {
+        "Name":  "*.gotomeeting.com",
+        "Description":  "",
+        "FQDN":  "*.gotomeeting.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "GotoMeeting"
+    },
+    {
+        "Name":  "*.gotomypc.com",
+        "Description":  "",
+        "FQDN":  "*.gotomypc.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "GotoMyPC"
+    },
+    {
+        "Name":  "*.openvoice.com",
+        "Description":  "",
+        "FQDN":  "*.openvoice.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "GotoMyPC"
+    },
+    {
+        "Name":  "*.api.filepicker.io",
+        "Description":  "",
+        "FQDN":  "*.api.filepicker.io",
+        "FQDNHostGroupList.FQDNHostGroup":  "GotoMyPC"
+    },
+    {
+        "Name":  "*.jointraining.com",
+        "Description":  "",
+        "FQDN":  "*.jointraining.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "GotoTraining"
+    },
+    {
+        "Name":  "*.gototraining.com",
+        "Description":  "",
+        "FQDN":  "*.gototraining.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "GotoTraining"
+    },
+    {
+        "Name":  "*.sharefile.com",
+        "Description":  "",
+        "FQDN":  "*.sharefile.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "Sharefile"
+    },
+    {
+        "Name":  "*.sharefileftp.com",
+        "Description":  "",
+        "FQDN":  "*.sharefileftp.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "Sharefile"
+    },
+    {
+        "Name":  "*.sharefile-webdav.com",
+        "Description":  "",
+        "FQDN":  "*.sharefile-webdav.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "Sharefile"
+    },
+    {
+        "Name":  "*.sharefile.eu",
+        "Description":  "",
+        "FQDN":  "*.sharefile.eu",
+        "FQDNHostGroupList.FQDNHostGroup":  "Sharefile"
+    },
+    {
+        "Name":  "*.securevdr.com",
+        "Description":  "",
+        "FQDN":  "*.securevdr.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "Sharefile"
+    },
+    {
+        "Name":  "*.podio.com",
+        "Description":  "",
+        "FQDN":  "*.podio.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "Podio"
+    },
+    {
+        "Name":  "*.citrixonlinecdn.com",
+        "Description":  "",
+        "FQDN":  "*.citrixonlinecdn.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "Other Citrix domains"
+    },
+    {
+        "Name":  "*.sf-api.com",
+        "Description":  "",
+        "FQDN":  "*.sf-api.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "Other Citrix domains"
+    },
+    {
+        "Name":  "*.expertcity.com",
+        "Description":  "",
+        "FQDN":  "*.expertcity.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "Other Citrix domains"
+    },
+    {
+        "Name":  "*.sf-api.eu",
+        "Description":  "",
+        "FQDN":  "*.sf-api.eu",
+        "FQDNHostGroupList.FQDNHostGroup":  "Other Citrix domains"
+    },
+    {
+        "Name":  "*.getgocdn.com",
+        "Description":  "",
+        "FQDN":  "*.getgocdn.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "Other Citrix domains"
+    },
+    {
+        "Name":  "*.hu.tt",
+        "Description":  "",
+        "FQDN":  "*.hu.tt",
+        "FQDNHostGroupList.FQDNHostGroup":  "Other Citrix domains"
+    },
+    {
+        "Name":  "*.osdimg.com",
+        "Description":  "",
+        "FQDN":  "*.osdimg.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "Other Citrix domains"
+    },
+    {
+        "Name":  "*.citrixonline.com",
+        "Description":  "",
+        "FQDN":  "*.citrixonline.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "Other Citrix domains"
+    },
+    {
+        "Name":  "*.apple.com",
+        "Description":  "",
+        "FQDN":  "*.apple.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "Apple Services"
+    },
+    {
+        "Name":  "*.icloud.com",
+        "Description":  "",
+        "FQDN":  "*.icloud.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "iCloud"
+    },
+    {
+        "Name":  "*.microsoft.com",
+        "Description":  "",
+        "FQDN":  "*.microsoft.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "Microsoft Services"
+    },
+    {
+        "Name":  "*.messenger.live.com",
+        "Description":  "",
+        "FQDN":  "*.messenger.live.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "Skype"
+    },
+    {
+        "Name":  "*.netflix.com",
+        "Description":  "",
+        "FQDN":  "*.netflix.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "Netflix"
+    },
+    {
+        "Name":  "*.nflxext.com",
+        "Description":  "",
+        "FQDN":  "*.nflxext.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "Netflix"
+    },
+    {
+        "Name":  "*.nflximg.net",
+        "Description":  "",
+        "FQDN":  "*.nflximg.net",
+        "FQDNHostGroupList.FQDNHostGroup":  "Netflix"
+    },
+    {
+        "Name":  "*.nflxso.net",
+        "Description":  "",
+        "FQDN":  "*.nflxso.net",
+        "FQDNHostGroupList.FQDNHostGroup":  "Netflix"
+    },
+    {
+        "Name":  "*.nflxvideo.net",
+        "Description":  "",
+        "FQDN":  "*.nflxvideo.net",
+        "FQDNHostGroupList.FQDNHostGroup":  "Netflix"
+    },
+    {
+        "Name":  "*.clients.l.google.com",
+        "Description":  "",
+        "FQDN":  "*.clients.l.google.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "Google API Hosts"
+    },
+    {
+        "Name":  "*.googleapis.com",
+        "Description":  "",
+        "FQDN":  "*.googleapis.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "Google API Hosts"
+    },
+    {
+        "Name":  "chrome.google.com",
+        "Description":  "",
+        "FQDN":  "chrome.google.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "Google Chrome Web Store"
+    },
+    {
+        "Name":  "apis.google.com",
+        "Description":  "",
+        "FQDN":  "apis.google.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "Google Chrome Web Store"
+    },
+    {
+        "Name":  "googleapis.l.google.com",
+        "Description":  "",
+        "FQDN":  "googleapis.l.google.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "Google Chrome Web Store"
+    },
+    {
+        "Name":  "*.gstatic.com",
+        "Description":  "",
+        "FQDN":  "*.gstatic.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "Google Chrome Web Store"
+    },
+    {
+        "Name":  "*.client-channel.google.com",
+        "Description":  "",
+        "FQDN":  "*.client-channel.google.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "Google Chrome Web Store"
+    },
+    {
+        "Name":  "*.googleusercontent.com",
+        "Description":  "",
+        "FQDN":  "*.googleusercontent.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "Google Chrome Web Store"
+    },
+    {
+        "Name":  "clients.l.google.com",
+        "Description":  "",
+        "FQDN":  "clients.l.google.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "Google Chrome Web Store"
+    },
+    {
+        "Name":  "clients1.google.com",
+        "Description":  "",
+        "FQDN":  "clients1.google.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "Google Chrome Web Store"
+    },
+    {
+        "Name":  "clients2.google.com",
+        "Description":  "",
+        "FQDN":  "clients2.google.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "Google Chrome Web Store"
+    },
+    {
+        "Name":  "clients3.google.com",
+        "Description":  "",
+        "FQDN":  "clients3.google.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "Google Chrome Web Store"
+    },
+    {
+        "Name":  "clients4.google.com",
+        "Description":  "",
+        "FQDN":  "clients4.google.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "Google Chrome Web Store"
+    },
+    {
+        "Name":  "clients5.google.com",
+        "Description":  "",
+        "FQDN":  "clients5.google.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "Google Chrome Web Store"
+    },
+    {
+        "Name":  "clients6.google.com",
+        "Description":  "",
+        "FQDN":  "clients6.google.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "Google Chrome Web Store"
+    },
+    {
+        "Name":  "m.google.com",
+        "Description":  "",
+        "FQDN":  "m.google.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "Google API Hosts"
+    },
+    {
+        "Name":  "mobile.l.google.com",
+        "Description":  "",
+        "FQDN":  "mobile.l.google.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "Google API Hosts"
+    },
+    {
+        "Name":  "www.bing.com",
+        "Description":  "",
+        "FQDN":  "www.bing.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www2.bing.com",
+        "Description":  "",
+        "FQDN":  "www2.bing.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www4.bing.com",
+        "Description":  "",
+        "FQDN":  "www4.bing.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "wp.m.bing.com",
+        "Description":  "",
+        "FQDN":  "wp.m.bing.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "google.com",
+        "Description":  "",
+        "FQDN":  "google.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement, Google app enforcement"
+    },
+    {
+        "Name":  "*.google.com",
+        "Description":  "",
+        "FQDN":  "*.google.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement, Google app enforcement"
+    },
+    {
+        "Name":  "www.google.ad",
+        "Description":  "",
+        "FQDN":  "www.google.ad",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.ae",
+        "Description":  "",
+        "FQDN":  "www.google.ae",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.af",
+        "Description":  "",
+        "FQDN":  "www.google.com.af",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.ag",
+        "Description":  "",
+        "FQDN":  "www.google.com.ag",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.ai",
+        "Description":  "",
+        "FQDN":  "www.google.com.ai",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.al",
+        "Description":  "",
+        "FQDN":  "www.google.al",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.am",
+        "Description":  "",
+        "FQDN":  "www.google.am",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.co.ao",
+        "Description":  "",
+        "FQDN":  "www.google.co.ao",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.ar",
+        "Description":  "",
+        "FQDN":  "www.google.com.ar",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.as",
+        "Description":  "",
+        "FQDN":  "www.google.as",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.at",
+        "Description":  "",
+        "FQDN":  "www.google.at",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.au",
+        "Description":  "",
+        "FQDN":  "www.google.com.au",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.az",
+        "Description":  "",
+        "FQDN":  "www.google.az",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.ba",
+        "Description":  "",
+        "FQDN":  "www.google.ba",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.bd",
+        "Description":  "",
+        "FQDN":  "www.google.com.bd",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.be",
+        "Description":  "",
+        "FQDN":  "www.google.be",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.bf",
+        "Description":  "",
+        "FQDN":  "www.google.bf",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.bg",
+        "Description":  "",
+        "FQDN":  "www.google.bg",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.bh",
+        "Description":  "",
+        "FQDN":  "www.google.com.bh",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.bi",
+        "Description":  "",
+        "FQDN":  "www.google.bi",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.bj",
+        "Description":  "",
+        "FQDN":  "www.google.bj",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.bn",
+        "Description":  "",
+        "FQDN":  "www.google.com.bn",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.bo",
+        "Description":  "",
+        "FQDN":  "www.google.com.bo",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.br",
+        "Description":  "",
+        "FQDN":  "www.google.com.br",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.bs",
+        "Description":  "",
+        "FQDN":  "www.google.bs",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.bt",
+        "Description":  "",
+        "FQDN":  "www.google.bt",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.co.bw",
+        "Description":  "",
+        "FQDN":  "www.google.co.bw",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.by",
+        "Description":  "",
+        "FQDN":  "www.google.by",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.bz",
+        "Description":  "",
+        "FQDN":  "www.google.com.bz",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.ca",
+        "Description":  "",
+        "FQDN":  "www.google.ca",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.cd",
+        "Description":  "",
+        "FQDN":  "www.google.cd",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.cf",
+        "Description":  "",
+        "FQDN":  "www.google.cf",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.cg",
+        "Description":  "",
+        "FQDN":  "www.google.cg",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.ch",
+        "Description":  "",
+        "FQDN":  "www.google.ch",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.ci",
+        "Description":  "",
+        "FQDN":  "www.google.ci",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.co.ck",
+        "Description":  "",
+        "FQDN":  "www.google.co.ck",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.cl",
+        "Description":  "",
+        "FQDN":  "www.google.cl",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.cm",
+        "Description":  "",
+        "FQDN":  "www.google.cm",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.cn",
+        "Description":  "",
+        "FQDN":  "www.google.cn",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.co",
+        "Description":  "",
+        "FQDN":  "www.google.com.co",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.co.cr",
+        "Description":  "",
+        "FQDN":  "www.google.co.cr",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.cu",
+        "Description":  "",
+        "FQDN":  "www.google.com.cu",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.cv",
+        "Description":  "",
+        "FQDN":  "www.google.cv",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.cy",
+        "Description":  "",
+        "FQDN":  "www.google.com.cy",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.cz",
+        "Description":  "",
+        "FQDN":  "www.google.cz",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.de",
+        "Description":  "",
+        "FQDN":  "www.google.de",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.dj",
+        "Description":  "",
+        "FQDN":  "www.google.dj",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.dk",
+        "Description":  "",
+        "FQDN":  "www.google.dk",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.dm",
+        "Description":  "",
+        "FQDN":  "www.google.dm",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.do",
+        "Description":  "",
+        "FQDN":  "www.google.com.do",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.dz",
+        "Description":  "",
+        "FQDN":  "www.google.dz",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.ec",
+        "Description":  "",
+        "FQDN":  "www.google.com.ec",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.ee",
+        "Description":  "",
+        "FQDN":  "www.google.ee",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.eg",
+        "Description":  "",
+        "FQDN":  "www.google.com.eg",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.es",
+        "Description":  "",
+        "FQDN":  "www.google.es",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.et",
+        "Description":  "",
+        "FQDN":  "www.google.com.et",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.fi",
+        "Description":  "",
+        "FQDN":  "www.google.fi",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.fj",
+        "Description":  "",
+        "FQDN":  "www.google.com.fj",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.fm",
+        "Description":  "",
+        "FQDN":  "www.google.fm",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.fr",
+        "Description":  "",
+        "FQDN":  "www.google.fr",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.ga",
+        "Description":  "",
+        "FQDN":  "www.google.ga",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.ge",
+        "Description":  "",
+        "FQDN":  "www.google.ge",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.gg",
+        "Description":  "",
+        "FQDN":  "www.google.gg",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.gh",
+        "Description":  "",
+        "FQDN":  "www.google.com.gh",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.gi",
+        "Description":  "",
+        "FQDN":  "www.google.com.gi",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.gl",
+        "Description":  "",
+        "FQDN":  "www.google.gl",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.gm",
+        "Description":  "",
+        "FQDN":  "www.google.gm",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.gp",
+        "Description":  "",
+        "FQDN":  "www.google.gp",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.gr",
+        "Description":  "",
+        "FQDN":  "www.google.gr",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.gt",
+        "Description":  "",
+        "FQDN":  "www.google.com.gt",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.gy",
+        "Description":  "",
+        "FQDN":  "www.google.gy",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.hk",
+        "Description":  "",
+        "FQDN":  "www.google.com.hk",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.hn",
+        "Description":  "",
+        "FQDN":  "www.google.hn",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.hr",
+        "Description":  "",
+        "FQDN":  "www.google.hr",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.ht",
+        "Description":  "",
+        "FQDN":  "www.google.ht",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.hu",
+        "Description":  "",
+        "FQDN":  "www.google.hu",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.co.id",
+        "Description":  "",
+        "FQDN":  "www.google.co.id",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.ie",
+        "Description":  "",
+        "FQDN":  "www.google.ie",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.co.il",
+        "Description":  "",
+        "FQDN":  "www.google.co.il",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.im",
+        "Description":  "",
+        "FQDN":  "www.google.im",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.co.in",
+        "Description":  "",
+        "FQDN":  "www.google.co.in",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.iq",
+        "Description":  "",
+        "FQDN":  "www.google.iq",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.is",
+        "Description":  "",
+        "FQDN":  "www.google.is",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.it",
+        "Description":  "",
+        "FQDN":  "www.google.it",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.je",
+        "Description":  "",
+        "FQDN":  "www.google.je",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.jm",
+        "Description":  "",
+        "FQDN":  "www.google.com.jm",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.jo",
+        "Description":  "",
+        "FQDN":  "www.google.jo",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.co.jp",
+        "Description":  "",
+        "FQDN":  "www.google.co.jp",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.co.ke",
+        "Description":  "",
+        "FQDN":  "www.google.co.ke",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.kh",
+        "Description":  "",
+        "FQDN":  "www.google.com.kh",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.ki",
+        "Description":  "",
+        "FQDN":  "www.google.ki",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.kg",
+        "Description":  "",
+        "FQDN":  "www.google.kg",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.co.kr",
+        "Description":  "",
+        "FQDN":  "www.google.co.kr",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.kw",
+        "Description":  "",
+        "FQDN":  "www.google.com.kw",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.kz",
+        "Description":  "",
+        "FQDN":  "www.google.kz",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.la",
+        "Description":  "",
+        "FQDN":  "www.google.la",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.lb",
+        "Description":  "",
+        "FQDN":  "www.google.com.lb",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.li",
+        "Description":  "",
+        "FQDN":  "www.google.li",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.lk",
+        "Description":  "",
+        "FQDN":  "www.google.lk",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.co.ls",
+        "Description":  "",
+        "FQDN":  "www.google.co.ls",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.lt",
+        "Description":  "",
+        "FQDN":  "www.google.lt",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.lu",
+        "Description":  "",
+        "FQDN":  "www.google.lu",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.lv",
+        "Description":  "",
+        "FQDN":  "www.google.lv",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.ly",
+        "Description":  "",
+        "FQDN":  "www.google.com.ly",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.co.ma",
+        "Description":  "",
+        "FQDN":  "www.google.co.ma",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.md",
+        "Description":  "",
+        "FQDN":  "www.google.md",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.me",
+        "Description":  "",
+        "FQDN":  "www.google.me",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.mg",
+        "Description":  "",
+        "FQDN":  "www.google.mg",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.mk",
+        "Description":  "",
+        "FQDN":  "www.google.mk",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.ml",
+        "Description":  "",
+        "FQDN":  "www.google.ml",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.mm",
+        "Description":  "",
+        "FQDN":  "www.google.com.mm",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.mn",
+        "Description":  "",
+        "FQDN":  "www.google.mn",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.ms",
+        "Description":  "",
+        "FQDN":  "www.google.ms",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.mt",
+        "Description":  "",
+        "FQDN":  "www.google.com.mt",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.mu",
+        "Description":  "",
+        "FQDN":  "www.google.mu",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.mv",
+        "Description":  "",
+        "FQDN":  "www.google.mv",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.mw",
+        "Description":  "",
+        "FQDN":  "www.google.mw",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.mx",
+        "Description":  "",
+        "FQDN":  "www.google.com.mx",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.my",
+        "Description":  "",
+        "FQDN":  "www.google.com.my",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.co.mz",
+        "Description":  "",
+        "FQDN":  "www.google.co.mz",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.na",
+        "Description":  "",
+        "FQDN":  "www.google.com.na",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.nf",
+        "Description":  "",
+        "FQDN":  "www.google.com.nf",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.ng",
+        "Description":  "",
+        "FQDN":  "www.google.com.ng",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.ni",
+        "Description":  "",
+        "FQDN":  "www.google.com.ni",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.ne",
+        "Description":  "",
+        "FQDN":  "www.google.ne",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.nl",
+        "Description":  "",
+        "FQDN":  "www.google.nl",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.no",
+        "Description":  "",
+        "FQDN":  "www.google.no",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.np",
+        "Description":  "",
+        "FQDN":  "www.google.com.np",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.nr",
+        "Description":  "",
+        "FQDN":  "www.google.nr",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.nu",
+        "Description":  "",
+        "FQDN":  "www.google.nu",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.co.nz",
+        "Description":  "",
+        "FQDN":  "www.google.co.nz",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.om",
+        "Description":  "",
+        "FQDN":  "www.google.com.om",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.pa",
+        "Description":  "",
+        "FQDN":  "www.google.com.pa",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.pe",
+        "Description":  "",
+        "FQDN":  "www.google.com.pe",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.pg",
+        "Description":  "",
+        "FQDN":  "www.google.com.pg",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.ph",
+        "Description":  "",
+        "FQDN":  "www.google.com.ph",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.pk",
+        "Description":  "",
+        "FQDN":  "www.google.com.pk",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.pl",
+        "Description":  "",
+        "FQDN":  "www.google.pl",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.pn",
+        "Description":  "",
+        "FQDN":  "www.google.pn",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.pr",
+        "Description":  "",
+        "FQDN":  "www.google.com.pr",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.ps",
+        "Description":  "",
+        "FQDN":  "www.google.ps",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.pt",
+        "Description":  "",
+        "FQDN":  "www.google.pt",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.py",
+        "Description":  "",
+        "FQDN":  "www.google.com.py",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.qa",
+        "Description":  "",
+        "FQDN":  "www.google.com.qa",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.ro",
+        "Description":  "",
+        "FQDN":  "www.google.ro",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.ru",
+        "Description":  "",
+        "FQDN":  "www.google.ru",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.rw",
+        "Description":  "",
+        "FQDN":  "www.google.rw",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.sa",
+        "Description":  "",
+        "FQDN":  "www.google.com.sa",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.sb",
+        "Description":  "",
+        "FQDN":  "www.google.com.sb",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.sc",
+        "Description":  "",
+        "FQDN":  "www.google.sc",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.se",
+        "Description":  "",
+        "FQDN":  "www.google.se",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.sg",
+        "Description":  "",
+        "FQDN":  "www.google.com.sg",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.sh",
+        "Description":  "",
+        "FQDN":  "www.google.sh",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.si",
+        "Description":  "",
+        "FQDN":  "www.google.si",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.sk",
+        "Description":  "",
+        "FQDN":  "www.google.sk",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.sl",
+        "Description":  "",
+        "FQDN":  "www.google.com.sl",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.sn",
+        "Description":  "",
+        "FQDN":  "www.google.sn",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.so",
+        "Description":  "",
+        "FQDN":  "www.google.so",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.sm",
+        "Description":  "",
+        "FQDN":  "www.google.sm",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.sr",
+        "Description":  "",
+        "FQDN":  "www.google.sr",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.st",
+        "Description":  "",
+        "FQDN":  "www.google.st",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.sv",
+        "Description":  "",
+        "FQDN":  "www.google.com.sv",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.td",
+        "Description":  "",
+        "FQDN":  "www.google.td",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.tg",
+        "Description":  "",
+        "FQDN":  "www.google.tg",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.co.th",
+        "Description":  "",
+        "FQDN":  "www.google.co.th",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.tj",
+        "Description":  "",
+        "FQDN":  "www.google.com.tj",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.tk",
+        "Description":  "",
+        "FQDN":  "www.google.tk",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.tl",
+        "Description":  "",
+        "FQDN":  "www.google.tl",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.tm",
+        "Description":  "",
+        "FQDN":  "www.google.tm",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.tn",
+        "Description":  "",
+        "FQDN":  "www.google.tn",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.to",
+        "Description":  "",
+        "FQDN":  "www.google.to",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.tr",
+        "Description":  "",
+        "FQDN":  "www.google.com.tr",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.tt",
+        "Description":  "",
+        "FQDN":  "www.google.tt",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.tw",
+        "Description":  "",
+        "FQDN":  "www.google.com.tw",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.co.tz",
+        "Description":  "",
+        "FQDN":  "www.google.co.tz",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.ua",
+        "Description":  "",
+        "FQDN":  "www.google.com.ua",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.co.ug",
+        "Description":  "",
+        "FQDN":  "www.google.co.ug",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.co.uk",
+        "Description":  "",
+        "FQDN":  "www.google.co.uk",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.uy",
+        "Description":  "",
+        "FQDN":  "www.google.com.uy",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.co.uz",
+        "Description":  "",
+        "FQDN":  "www.google.co.uz",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.vc",
+        "Description":  "",
+        "FQDN":  "www.google.com.vc",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.co.ve",
+        "Description":  "",
+        "FQDN":  "www.google.co.ve",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.vg",
+        "Description":  "",
+        "FQDN":  "www.google.vg",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.co.vi",
+        "Description":  "",
+        "FQDN":  "www.google.co.vi",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.com.vn",
+        "Description":  "",
+        "FQDN":  "www.google.com.vn",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.vu",
+        "Description":  "",
+        "FQDN":  "www.google.vu",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.ws",
+        "Description":  "",
+        "FQDN":  "www.google.ws",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.rs",
+        "Description":  "",
+        "FQDN":  "www.google.rs",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.co.za",
+        "Description":  "",
+        "FQDN":  "www.google.co.za",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.co.zm",
+        "Description":  "",
+        "FQDN":  "www.google.co.zm",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.co.zw",
+        "Description":  "",
+        "FQDN":  "www.google.co.zw",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.google.cat",
+        "Description":  "",
+        "FQDN":  "www.google.cat",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "search.yahoo.com",
+        "Description":  "",
+        "FQDN":  "search.yahoo.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "*.search.yahoo.com",
+        "Description":  "",
+        "FQDN":  "*.search.yahoo.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "SafeSearch enforcement"
+    },
+    {
+        "Name":  "www.youtube.com",
+        "Description":  "",
+        "FQDN":  "www.youtube.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "YouTube restrictions enforcement"
+    },
+    {
+        "Name":  "m.youtube.com",
+        "Description":  "",
+        "FQDN":  "m.youtube.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "YouTube restrictions enforcement"
+    },
+    {
+        "Name":  "youtube.googleapis.com",
+        "Description":  "",
+        "FQDN":  "youtube.googleapis.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "YouTube restrictions enforcement"
+    },
+    {
+        "Name":  "youtubei.googleapis.com",
+        "Description":  "",
+        "FQDN":  "youtubei.googleapis.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "YouTube restrictions enforcement"
+    },
+    {
+        "Name":  "www.youtube-nocookie.com",
+        "Description":  "",
+        "FQDN":  "www.youtube-nocookie.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "YouTube restrictions enforcement"
+    },
+    {
+        "Name":  "login.microsoftonline.com",
+        "Description":  "",
+        "FQDN":  "login.microsoftonline.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "Microsoft tenant restrictions"
+    },
+    {
+        "Name":  "login.microsoft.com",
+        "Description":  "",
+        "FQDN":  "login.microsoft.com",
+        "FQDNHostGroupList.FQDNHostGroup":  "Microsoft tenant restrictions"
+    },
+    {
+        "Name":  "login.windows.net",
+        "Description":  "",
+        "FQDN":  "login.windows.net",
+        "FQDNHostGroupList.FQDNHostGroup":  "Microsoft tenant restrictions"
+    }
+]

@@ -1,0 +1,42 @@
+﻿[
+    {
+        "Name":  "generalpolicy",
+        "Description":  "A General Policy"
+    },
+    {
+        "Name":  "lantowan_strict",
+        "Description":  "A Strict policy for LAN to WAN Traffic"
+    },
+    {
+        "Name":  "lantowan_general",
+        "Description":  "A General policy for LAN to WAN Traffic"
+    },
+    {
+        "Name":  "dmzpolicy",
+        "Description":  "A General policy to scan traffic flowing to DMZ"
+    },
+    {
+        "Name":  "WAN TO DMZ",
+        "Description":  "A default IPS policy template to scan the traffic flowing from WAN to DMZ; Primarily intended to secure server(s) hosted in the DMZ"
+    },
+    {
+        "Name":  "WAN TO LAN",
+        "Description":  "A default IPS policy template to scan the traffic flowing from WAN to LAN; Primarily intended to secure server(s) hosted in the LAN"
+    },
+    {
+        "Name":  "DMZ TO LAN",
+        "Description":  "A default IPS policy template to scan the traffic flowing from DMZ to LAN; Primarily intended to secure server(s) hosted in the LAN zone"
+    },
+    {
+        "Name":  "DMZ TO WAN",
+        "Description":  "A default IPS policy template to scan the traffic flowing from DMZ to WAN; Primarily intended to secure the DMZ-based client(s)"
+    },
+    {
+        "Name":  "LAN TO DMZ",
+        "Description":  "A default IPS policy template to scan the traffic flowing from LAN to DMZ; Primarily intended to secure the LAN-based client(s) and DMZ-based server(s)"
+    },
+    {
+        "Name":  "LAN TO WAN",
+        "Description":  "A default IPS policy template to scan the traffic flowing from LAN to WAN; Primarily intended to secure LAN-based client(s)"
+    }
+]

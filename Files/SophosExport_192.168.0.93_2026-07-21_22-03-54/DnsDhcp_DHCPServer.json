@@ -1,0 +1,21 @@
+﻿{
+    "Name":  "GuestAccess_DHCP",
+    "Status":  "1",
+    "Interface":  "GuestAP",
+    "IPLease.IP":  "10.255.0.2-10.255.0.254",
+    "ConflictDetection":  "Disable",
+    "LeaseForRelay":  "Disable",
+    "SubnetMask":  "255.255.255.0",
+    "DomainName":  "",
+    "DefaultLeaseTime":  "1440",
+    "MaxLeaseTime":  "2880",
+    "UseApplianceDNSSettings":  "Disable",
+    "PrimaryDNSServer":  "10.255.0.1",
+    "SecondaryDNSServer":  "",
+    "PrimaryWINSServer":  "",
+    "SecondaryWINSServer":  "",
+    "BootServer":  "",
+    "BootFile":  "",
+    "Gateway":  "10.255.0.1",
+    "UseInterfaceIPasGateway":  "UseInterfaceIPAsGateway"
+}

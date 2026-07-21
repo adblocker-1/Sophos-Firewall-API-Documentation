@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Response APIVersion="2105.1" IPS_CAT_VER="0" IS_WIFI6="0">
+  <Login>
+    <status>Authentication Successful</status>
+  </Login>
+  <Schedule transactionid="">
+    <Name>Work hours (5 Day week)</Name>
+    <Description>5 days working week 10:00 to 19:00.</Description>
+    <Type>Recurring</Type>
+    <ScheduleDetails>
+      <ScheduleDetail>
+        <Days>Week Days</Days>
+        <StartTime>10:00</StartTime>
+        <StopTime>19:00</StopTime>
+      </ScheduleDetail>
+    </ScheduleDetails>
+  </Schedule>
+  <Schedule transactionid="">
+    <Name>Work hours (6 Day week)</Name>
+    <Description>6 days working week 10:00 - 19:00 i.e. Monday to Saturday</Description>
+    <Type>Recurring</Type>
+    <ScheduleDetails>
+      <ScheduleDetail>
+        <Days>Weekdays Including Saturday</Days>
+        <StartTime>10:00</StartTime>
+        <StopTime>19:00</StopTime>
+      </ScheduleDetail>
+    </ScheduleDetails>
+  </Schedule>
+  <Schedule transactionid="">
+    <Name>All Time on Weekdays</Name>
+    <Description>All Time on Weekdays Mon - Fri</Description>
+    <Type>Recurring</Type>
+    <ScheduleDetails>
+      <ScheduleDetail>
+        <Days>Week Days</Days>
+        <StartTime>00:00</StartTime>
+        <StopTime>23:59</StopTime>
+      </ScheduleDetail>
+    </ScheduleDetails>
+  </Schedule>
+  <Schedule transactionid="">
+    <Name>All Time on Weekends</Name>
+    <Description>All Time on Weekends</Description>
+    <Type>Recurring</Type>
+    <ScheduleDetails>
+      <ScheduleDetail>
+        <Days>Sunday</Days>
+        <StartTime>00:00</StartTime>
+        <StopTime>23:59</StopTime>
+      </ScheduleDetail>
+      <ScheduleDetail>
+        <Days>Saturday</Days>
+        <StartTime>00:00</StartTime>
+        <StopTime>23:59</StopTime>
+      </ScheduleDetail>
+    </ScheduleDetails>
+  </Schedule>
+  <Schedule transactionid="">
+    <Name>All Time on Sunday</Name>
+    <Description>All Time on Sunday</Description>
+    <Type>Recurring</Type>
+    <ScheduleDetails>
+      <ScheduleDetail>
+        <Days>Sunday</Days>
+        <StartTime>00:00</StartTime>
+        <StopTime>23:59</StopTime>
+      </ScheduleDetail>
+    </ScheduleDetails>
+  </Schedule>
+  <Schedule transactionid="">
+    <Name>All Days 10:00 to 19:00</Name>
+    <Description>All Days 10:00 to 19:00</Description>
+    <Type>Recurring</Type>
+    <ScheduleDetails>
+      <ScheduleDetail>
+        <Days>All Days of week</Days>
+        <StartTime>10:00</StartTime>
+        <StopTime>19:00</StopTime>
+      </ScheduleDetail>
+    </ScheduleDetails>
+  </Schedule>
+</Response>

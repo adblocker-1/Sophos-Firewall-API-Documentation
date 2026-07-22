@@ -15,8 +15,8 @@
       4. Export nach Excel (Modul "ImportExcel", ein Blatt pro Bereich).
          Ist Excel-Export nicht moeglich, werden automatisch JSON- und
          XML-Dateien pro Bereich erstellt.
-      5. Zusaetzlich wird immer ein HTML-Report erstellt (ueber das Skript
-         Generate-FirewallHtml.ps1 im selben Ordner), abschaltbar mit -NoHtml.
+      5. Zusaetzlich wird immer ein HTML-Report erstellt
+         (Sophos_Firewall_Konfiguration.html), abschaltbar mit -NoHtml.
 
     Voraussetzung auf der Firewall:
       - API-Zugriff aktivieren unter: Backup & Firmware > API
@@ -360,6 +360,212 @@ function Initialize-ImportExcel {
     }
 }
 
+# ---------------------------------------------------------------------------
+# HTML-Report (integriert aus Generate-FirewallHtml.ps1)
+# ---------------------------------------------------------------------------
+$script:HtmlMaxLen = 800
+
+function Convert-HtmlSanitize {
+    param([string]$s)
+    if ($null -eq $s) { return '' }
+    $s = [regex]::Replace($s, "[\x00-\x08\x0b\x0c\x0e-\x1f]", ' ')
+    $s = [regex]::Replace($s, "[ \t]{3,}", '  ')
+    $s = $s.Trim()
+    if ($s.Length -gt $script:HtmlMaxLen) { $s = $s.Substring(0, $script:HtmlMaxLen) + ' ... [gekuerzt]' }
+    return $s
+}
+
+function Convert-HtmlValue {
+    param($v)
+    if ($null -eq $v) { return '' }
+    if ($v -is [System.Collections.IEnumerable] -and -not ($v -is [string])) {
+        $items = @()
+        foreach ($x in $v) { if ($null -ne $x) { $items += (Convert-HtmlValue $x) } }
+        return (Convert-HtmlSanitize ($items -join ', '))
+    }
+    if ($v -is [System.Management.Automation.PSCustomObject]) {
+        $parts = @()
+        foreach ($p in $v.PSObject.Properties) { $parts += ('{0}: {1}' -f $p.Name, (Convert-HtmlValue $p.Value)) }
+        return (Convert-HtmlSanitize ($parts -join '; '))
+    }
+    return (Convert-HtmlSanitize ([string]$v))
+}
+
+function Get-HtmlEscape {
+    param($s)
+    $t = [string]$s
+    $t = $t.Replace('&', '&amp;').Replace('<', '&lt;').Replace('>', '&gt;').Replace('"', '&quot;').Replace("'", '&#x27;')
+    return $t
+}
+
+function Get-HtmlTable {
+    # Bereitet die Tabellenzeilen eines Moduls fuer den HTML-Report auf:
+    # Positions-Artefaktspalten (Endung ".Name") und komplett leere Spalten
+    # werden entfernt, Werte bereinigt und gekuerzt.
+    param($records)
+    $cols = New-Object System.Collections.Generic.List[string]
+    foreach ($r in $records) {
+        if ($r -is [System.Management.Automation.PSCustomObject]) {
+            foreach ($p in $r.PSObject.Properties) {
+                if (-not $cols.Contains($p.Name)) { [void]$cols.Add($p.Name) }
+            }
+        }
+    }
+    $cols = @($cols | Where-Object { -not ($_.EndsWith('.Name') -and $_ -ne 'Name') })
+
+    $rows = @()
+    foreach ($r in $records) {
+        if ($r -is [System.Management.Automation.PSCustomObject]) {
+            $row = @()
+            foreach ($c in $cols) {
+                $prop = $r.PSObject.Properties[$c]
+                if ($prop) { $row += (Convert-HtmlValue $prop.Value) } else { $row += '' }
+            }
+            $rows += ,$row
+        } else {
+            $rows += ,@((Convert-HtmlValue $r))
+        }
+    }
+    # Komplett leere Spalten entfernen
+    $keep = @()
+    for ($i = 0; $i -lt $cols.Count; $i++) {
+        $has = $false
+        foreach ($row in $rows) {
+            if ($i -lt $row.Count -and $row[$i].Trim().Length -gt 0) { $has = $true; break }
+        }
+        if ($has) { $keep += $i }
+    }
+    $ncols = @()
+    foreach ($i in $keep) { $ncols += $cols[$i] }
+    $nrows = @()
+    foreach ($row in $rows) {
+        $nr = @()
+        foreach ($i in $keep) { if ($i -lt $row.Count) { $nr += $row[$i] } else { $nr += '' } }
+        $nrows += ,$nr
+    }
+    return [PSCustomObject]@{ Cols = $ncols; Rows = $nrows }
+}
+
+function New-HtmlReport {
+    # Erzeugt aus den bereits abgerufenen Modulergebnissen eine HTML-Seite
+    # mit Navigation, Zusammenfassung und je einem Abschnitt pro Modul.
+    param(
+        [Parameter(Mandatory)]$Results,
+        [Parameter(Mandatory)][string]$Device,
+        [Parameter(Mandatory)][string]$ExportDate,
+        [Parameter(Mandatory)][string]$OutFile
+    )
+
+    $sections = @()
+    foreach ($r in $Results) {
+        $flat = Get-HtmlTable @($r.Rows)
+        $sections += [PSCustomObject]@{
+            Bereich = Convert-HtmlValue $r.Bereich
+            Modul   = Convert-HtmlValue $r.Modul
+            Count   = $r.Anzahl
+            Status  = Convert-HtmlValue $r.Status
+            Cols    = @($flat.Cols)
+            Rows    = @($flat.Rows)
+        }
+    }
+    $today = (Get-Date).ToString('yyyy-MM-dd')
+
+    $sb = New-Object System.Text.StringBuilder
+    [void]$sb.Append(@"
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sophos Firewall &#8211; Konfiguration $(Get-HtmlEscape $Device)</title>
+<style>
+:root{--nav:#1f3864;--nav2:#2e5496;--line:#d0d7e2;--alt:#f2f6fc;--muted:#6b7280;}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Segoe UI',Arial,sans-serif;color:#1a1a1a;background:#f4f6f9;}
+header{background:linear-gradient(135deg,#1f3864,#2e5496);color:#fff;padding:28px 40px;}
+header h1{margin:0 0 6px;font-size:24px;}
+header .meta{font-size:13px;opacity:.9;}
+.wrap{display:flex;align-items:flex-start;gap:24px;max-width:1500px;margin:0 auto;padding:24px;}
+nav{position:sticky;top:16px;flex:0 0 260px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px;max-height:90vh;overflow:auto;}
+nav h2{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin:0 0 8px;}
+nav a{display:flex;justify-content:space-between;gap:8px;padding:5px 8px;border-radius:6px;color:#233;text-decoration:none;font-size:13px;}
+nav a:hover{background:var(--alt);}
+nav a .cnt{color:var(--muted);font-variant-numeric:tabular-nums;}
+nav a.empty{color:#aeb4bd;}
+main{flex:1;min-width:0;}
+section{background:#fff;border:1px solid var(--line);border-radius:10px;padding:20px 22px;margin-bottom:22px;}
+section h2{margin:0 0 2px;font-size:18px;color:var(--nav);}
+section .cat{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:12px;}
+.tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px;}
+table{border-collapse:collapse;width:100%;font-size:13px;}
+th{background:var(--nav2);color:#fff;text-align:left;padding:8px 10px;position:sticky;top:0;white-space:nowrap;}
+td{padding:7px 10px;border-top:1px solid var(--line);vertical-align:top;}
+tr:nth-child(even) td{background:var(--alt);}
+.empty-note{color:var(--muted);font-style:italic;font-size:13px;}
+.pill{display:inline-block;background:#e8eefb;color:#1f3864;border-radius:12px;padding:1px 9px;font-size:12px;font-weight:600;}
+.summary{width:100%;border-collapse:collapse;font-size:13px;}
+.summary th,.summary td{border:1px solid var(--line);padding:7px 10px;text-align:left;}
+.summary th{background:var(--nav);color:#fff;}
+.summary td.n{text-align:center;font-variant-numeric:tabular-nums;}
+.summary tr.zero td{color:#aeb4bd;}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:20px;}
+</style></head><body>
+<header>
+<h1>Sophos Firewall &#8211; Konfigurations&#252;bersicht</h1>
+<div class="meta">Ger&#228;t $(Get-HtmlEscape $Device) &nbsp;&#183;&nbsp; Export $(Get-HtmlEscape $ExportDate) &nbsp;&#183;&nbsp; erstellt $today</div>
+</header>
+<div class="wrap">
+<nav><h2>Inhalt</h2>
+"@)
+
+    # Navigation
+    for ($i = 0; $i -lt $sections.Count; $i++) {
+        $s = $sections[$i]
+        $cls = ''
+        if ($s.Count -eq 0) { $cls = ' class=empty' }
+        [void]$sb.Append(('<a href="#s{0}"{1}><span>{2}</span><span class="cnt">{3}</span></a>' -f $i, $cls, (Get-HtmlEscape $s.Modul), $s.Count))
+    }
+    [void]$sb.Append('</nav><main>')
+
+    # Zusammenfassung
+    [void]$sb.Append('<section id="overview"><h2>Zusammenfassung</h2><div class="cat">Alle Konfigurationsbereiche</div>')
+    [void]$sb.Append('<table class="summary"><thead><tr><th>Bereich</th><th>Modul</th><th>Datens&#228;tze</th><th>Status</th></tr></thead><tbody>')
+    $last = $null
+    foreach ($s in $sections) {
+        $zc = ''
+        if ($s.Count -eq 0) { $zc = ' class=zero' }
+        $bshow = ''
+        if ($s.Bereich -ne $last) { $bshow = (Get-HtmlEscape $s.Bereich) }
+        $last = $s.Bereich
+        if ($s.Count -eq 0) { $st = 'leer' } else { $st = (Get-HtmlEscape $s.Status) }
+        [void]$sb.Append(('<tr{0}><td>{1}</td><td>{2}</td><td class="n">{3}</td><td>{4}</td></tr>' -f $zc, $bshow, (Get-HtmlEscape $s.Modul), $s.Count, $st))
+    }
+    [void]$sb.Append('</tbody></table></section>')
+
+    # Abschnitte
+    for ($i = 0; $i -lt $sections.Count; $i++) {
+        $s = $sections[$i]
+        [void]$sb.Append(('<section id="s{0}"><h2>{1} <span class="pill">{2}</span></h2><div class="cat">{3}</div>' -f $i, (Get-HtmlEscape $s.Modul), $s.Count, (Get-HtmlEscape $s.Bereich)))
+        if ($s.Count -eq 0 -or $s.Cols.Count -eq 0) {
+            [void]$sb.Append('<p class="empty-note">Keine Eintr&#228;ge vorhanden.</p>')
+        } else {
+            [void]$sb.Append('<div class="tblwrap"><table><thead><tr>')
+            foreach ($c in $s.Cols) { [void]$sb.Append(('<th>{0}</th>' -f (Get-HtmlEscape $c))) }
+            [void]$sb.Append('</tr></thead><tbody>')
+            foreach ($row in $s.Rows) {
+                [void]$sb.Append('<tr>')
+                foreach ($v in $row) { [void]$sb.Append(('<td>{0}</td>' -f (Get-HtmlEscape $v))) }
+                [void]$sb.Append('</tr>')
+            }
+            [void]$sb.Append('</tbody></table></div>')
+        }
+        [void]$sb.Append('</section>')
+    }
+
+    [void]$sb.Append('</main></div><footer>Erstellt aus dem Sophos-Export &#183; nur zur internen Dokumentation</footer></body></html>')
+
+    # Schreiben (UTF-8 ohne BOM)
+    $enc = New-Object System.Text.UTF8Encoding($false)
+    [System.IO.File]::WriteAllText($OutFile, $sb.ToString(), $enc)
+}
+
 function Test-TcpPort {
     param(
         [string]$TargetHost,
@@ -634,7 +840,6 @@ if ($OutputFormat -in @('Auto', 'Excel')) {
 }
 
 $createdFiles = [System.Collections.Generic.List[string]]::new()
-$jsonSourceDir = $null   # Verzeichnis mit JSON-Dateien fuer den HTML-Report
 
 if ($useExcel) {
     $excelPath = Join-Path $OutputDirectory "Sophos_Firewall_Export_$timestamp.xlsx"
@@ -682,50 +887,20 @@ else {
     $summaryPath = Join-Path $OutputDirectory '_Uebersicht.json'
     $overview | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath $summaryPath -Encoding UTF8
     [void]$createdFiles.Add($summaryPath)
-
-    if ($wantJson) { $jsonSourceDir = $OutputDirectory }
 }
 
-# --- 6b) HTML-Report erzeugen (Generate-FirewallHtml.ps1) ------------------
+# --- 6b) HTML-Report erzeugen ----------------------------------------------
 if (-not $NoHtml) {
-    $htmlScript = Join-Path $PSScriptRoot 'Generate-FirewallHtml.ps1'
-    if (-not (Test-Path -LiteralPath $htmlScript)) {
-        Write-WarnMsg "HTML-Report uebersprungen: '$htmlScript' nicht gefunden."
+    try {
+        $htmlPath = Join-Path $OutputDirectory 'Sophos_Firewall_Konfiguration.html'
+        Write-Info 'Erstelle HTML-Report ...'
+        New-HtmlReport -Results $results -OutFile $htmlPath `
+            -Device $script:TargetHost -ExportDate (Get-Date -Format 'yyyy-MM-dd HH:mm')
+        Write-Ok "HTML erstellt: $htmlPath"
+        [void]$createdFiles.Add($htmlPath)
     }
-    else {
-        $tempJsonDir = $null
-        try {
-            $htmlSourceDir = $jsonSourceDir
-            if (-not $htmlSourceDir) {
-                # Es liegen keine JSON-Dateien im Ausgabeverzeichnis (z.B.
-                # reiner Excel- oder XML-Export) - fuer den HTML-Report werden
-                # sie temporaer erzeugt und danach wieder geloescht.
-                $tempJsonDir = Join-Path ([System.IO.Path]::GetTempPath()) ('SophosHtml_' + [guid]::NewGuid().ToString('N'))
-                [void](New-Item -ItemType Directory -Path $tempJsonDir -Force)
-                foreach ($result in $results) {
-                    if ($result.Anzahl -gt 0) {
-                        $tempJsonPath = Join-Path $tempJsonDir "$($result.SectionKey)_$($result.Modul).json"
-                        $result.Rows | ConvertTo-Json -Depth 10 | Set-Content -LiteralPath $tempJsonPath -Encoding UTF8
-                    }
-                }
-                $overview | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath (Join-Path $tempJsonDir '_Uebersicht.json') -Encoding UTF8
-                $htmlSourceDir = $tempJsonDir
-            }
-
-            $htmlPath = Join-Path $OutputDirectory 'Sophos_Firewall_Konfiguration.html'
-            Write-Info 'Erstelle HTML-Report ...'
-            & $htmlScript -SourceDir $htmlSourceDir -OutFile $htmlPath `
-                -Device $script:TargetHost -ExportDate (Get-Date -Format 'yyyy-MM-dd HH:mm')
-            [void]$createdFiles.Add($htmlPath)
-        }
-        catch {
-            Write-WarnMsg "HTML-Report konnte nicht erstellt werden: $($_.Exception.Message)"
-        }
-        finally {
-            if ($tempJsonDir -and (Test-Path -LiteralPath $tempJsonDir)) {
-                Remove-Item -LiteralPath $tempJsonDir -Recurse -Force -ErrorAction SilentlyContinue
-            }
-        }
+    catch {
+        Write-WarnMsg "HTML-Report konnte nicht erstellt werden: $($_.Exception.Message)"
     }
 }
 

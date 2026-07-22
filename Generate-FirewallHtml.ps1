@@ -17,14 +17,25 @@
 .PARAMETER OutFile
     Zielpfad der HTML-Datei. Standard: <SourceDir>\Sophos_Firewall_Konfiguration.html
 
+.PARAMETER Device
+    Anzeigename/IP der Firewall fuer die Kopfzeile. Standard: wird aus dem
+    Ordnernamen (SophosExport_<IP>_<Zeitstempel>) abgeleitet.
+
+.PARAMETER ExportDate
+    Anzeigedatum des Exports fuer die Kopfzeile. Standard: wird aus dem
+    Ordnernamen abgeleitet.
+
 .EXAMPLE
     .\Generate-FirewallHtml.ps1
     .\Generate-FirewallHtml.ps1 -SourceDir "C:\Export" -OutFile "C:\Export\report.html"
+    .\Generate-FirewallHtml.ps1 -SourceDir "C:\Export" -Device 192.168.1.1 -ExportDate "2026-07-21 22:03"
 #>
 [CmdletBinding()]
 param(
     [string]$SourceDir,
-    [string]$OutFile
+    [string]$OutFile,
+    [string]$Device,
+    [string]$ExportDate
 )
 
 # ---------- Pfade ----------
@@ -140,14 +151,16 @@ function Get-Records {
     return @($d)
 }
 
-# ---------- Geraet / Datum aus Ordnernamen ableiten ----------
-$device = '192.168.0.93'
-$exportDate = '2026-07-21 22:03'
+# ---------- Geraet / Datum: Parameter oder aus Ordnernamen ableiten ----------
+# Hinweis: PowerShell-Variablen sind case-insensitiv, daher direkt mit den
+# Parametern $Device/$ExportDate arbeiten (keine separaten $device-Variablen).
 $folderName = Split-Path $SourceDir -Leaf
-if ($folderName -match 'SophosExport_([0-9\.]+)_(\d{4}-\d{2}-\d{2})_(\d{2})-(\d{2})-(\d{2})') {
-    $device = $Matches[1]
-    $exportDate = ('{0} {1}:{2}' -f $Matches[2], $Matches[3], $Matches[4])
+if ($folderName -match 'SophosExport_(.+)_(\d{4}-\d{2}-\d{2})_(\d{2})-(\d{2})-(\d{2})') {
+    if (-not $Device)     { $Device = $Matches[1] }
+    if (-not $ExportDate) { $ExportDate = ('{0} {1}:{2}' -f $Matches[2], $Matches[3], $Matches[4]) }
 }
+if (-not $Device)     { $Device = 'Unbekannt' }
+if (-not $ExportDate) { $ExportDate = (Get-Date).ToString('yyyy-MM-dd HH:mm') }
 $today = (Get-Date).ToString('yyyy-MM-dd')
 
 # ---------- Abschnitte aufbauen ----------

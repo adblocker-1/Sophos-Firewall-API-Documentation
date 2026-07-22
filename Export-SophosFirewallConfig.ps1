@@ -15,6 +15,8 @@
       4. Export nach Excel (Modul "ImportExcel", ein Blatt pro Bereich).
          Ist Excel-Export nicht moeglich, werden automatisch JSON- und
          XML-Dateien pro Bereich erstellt.
+      5. Zusaetzlich wird immer ein HTML-Report erstellt (ueber das Skript
+         Generate-FirewallHtml.ps1 im selben Ordner), abschaltbar mit -NoHtml.
 
     Voraussetzung auf der Firewall:
       - API-Zugriff aktivieren unter: Backup & Firmware > API
@@ -50,6 +52,10 @@
     Zielverzeichnis fuer den Export. Standard: Unterordner
     "SophosExport_<IP>_<Zeitstempel>" im aktuellen Verzeichnis.
 
+.PARAMETER NoHtml
+    Unterdrueckt die zusaetzliche Erstellung des HTML-Reports
+    (Sophos_Firewall_Konfiguration.html).
+
 .PARAMETER ListSections
     Zeigt nur die verfuegbaren Bereichs-Schluessel an und beendet das Skript.
 
@@ -84,6 +90,7 @@ param(
     [ValidateSet('Auto', 'Excel', 'Json', 'Xml')]
     [string]$OutputFormat = 'Auto',
     [string]$OutputDirectory,
+    [switch]$NoHtml,
     [switch]$ListSections,
     [ValidateRange(5, 600)]
     [int]$TimeoutSec = 60
@@ -627,6 +634,7 @@ if ($OutputFormat -in @('Auto', 'Excel')) {
 }
 
 $createdFiles = [System.Collections.Generic.List[string]]::new()
+$jsonSourceDir = $null   # Verzeichnis mit JSON-Dateien fuer den HTML-Report
 
 if ($useExcel) {
     $excelPath = Join-Path $OutputDirectory "Sophos_Firewall_Export_$timestamp.xlsx"
@@ -674,6 +682,51 @@ else {
     $summaryPath = Join-Path $OutputDirectory '_Uebersicht.json'
     $overview | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath $summaryPath -Encoding UTF8
     [void]$createdFiles.Add($summaryPath)
+
+    if ($wantJson) { $jsonSourceDir = $OutputDirectory }
+}
+
+# --- 6b) HTML-Report erzeugen (Generate-FirewallHtml.ps1) ------------------
+if (-not $NoHtml) {
+    $htmlScript = Join-Path $PSScriptRoot 'Generate-FirewallHtml.ps1'
+    if (-not (Test-Path -LiteralPath $htmlScript)) {
+        Write-WarnMsg "HTML-Report uebersprungen: '$htmlScript' nicht gefunden."
+    }
+    else {
+        $tempJsonDir = $null
+        try {
+            $htmlSourceDir = $jsonSourceDir
+            if (-not $htmlSourceDir) {
+                # Es liegen keine JSON-Dateien im Ausgabeverzeichnis (z.B.
+                # reiner Excel- oder XML-Export) - fuer den HTML-Report werden
+                # sie temporaer erzeugt und danach wieder geloescht.
+                $tempJsonDir = Join-Path ([System.IO.Path]::GetTempPath()) ('SophosHtml_' + [guid]::NewGuid().ToString('N'))
+                [void](New-Item -ItemType Directory -Path $tempJsonDir -Force)
+                foreach ($result in $results) {
+                    if ($result.Anzahl -gt 0) {
+                        $tempJsonPath = Join-Path $tempJsonDir "$($result.SectionKey)_$($result.Modul).json"
+                        $result.Rows | ConvertTo-Json -Depth 10 | Set-Content -LiteralPath $tempJsonPath -Encoding UTF8
+                    }
+                }
+                $overview | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath (Join-Path $tempJsonDir '_Uebersicht.json') -Encoding UTF8
+                $htmlSourceDir = $tempJsonDir
+            }
+
+            $htmlPath = Join-Path $OutputDirectory 'Sophos_Firewall_Konfiguration.html'
+            Write-Info 'Erstelle HTML-Report ...'
+            & $htmlScript -SourceDir $htmlSourceDir -OutFile $htmlPath `
+                -Device $script:TargetHost -ExportDate (Get-Date -Format 'yyyy-MM-dd HH:mm')
+            [void]$createdFiles.Add($htmlPath)
+        }
+        catch {
+            Write-WarnMsg "HTML-Report konnte nicht erstellt werden: $($_.Exception.Message)"
+        }
+        finally {
+            if ($tempJsonDir -and (Test-Path -LiteralPath $tempJsonDir)) {
+                Remove-Item -LiteralPath $tempJsonDir -Recurse -Force -ErrorAction SilentlyContinue
+            }
+        }
+    }
 }
 
 # --- 7) Zusammenfassung ----------------------------------------------------

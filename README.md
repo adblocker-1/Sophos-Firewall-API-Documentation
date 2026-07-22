@@ -6,6 +6,11 @@ wahlweise in eine **Excel-Datei** (ein Tabellenblatt pro Bereich, mit allen Feld
 als Spalten) oder – falls Excel-Export nicht möglich ist – automatisch in
 **JSON- und XML-Dateien pro Bereich**.
 
+Zusätzlich wird am Ende jedes Exports automatisch ein **HTML-Report**
+(`Sophos_Firewall_Konfiguration.html`) mit Navigation, Zusammenfassung und
+einer Tabelle pro Modul erstellt (über `Generate-FirewallHtml.ps1`) – so
+erhält man standardmäßig **Excel und HTML** in einem Durchlauf.
+
 ## Funktionen
 
 - Interaktive Abfrage von **Firewall-IP-Adresse** und **API-Zugangsdaten**
@@ -25,6 +30,9 @@ als Spalten) oder – falls Excel-Export nicht möglich ist – automatisch in
 - **Automatischer Fallback**: steht ImportExcel nicht zur Verfügung, wird pro
   Bereich eine JSON-Datei (aufbereitete Tabellendaten) **und** eine XML-Datei
   (API-Rohantwort) erstellt, plus `_Uebersicht.json`
+- **HTML-Report**: nach jedem Export entsteht zusätzlich eine übersichtliche
+  HTML-Seite (`Sophos_Firewall_Konfiguration.html`) mit Inhaltsverzeichnis,
+  Zusammenfassung und einer Tabelle pro Modul (abschaltbar mit `-NoHtml`)
 - Vollständig **skriptbar** über Parameter (für Automatisierung/Aufgabenplanung)
 - Funktioniert mit **Windows PowerShell 5.1** und **PowerShell 7+**
   (Windows/Linux/macOS); selbstsignierte Firewall-Zertifikate werden akzeptiert
@@ -111,6 +119,7 @@ Auswahl: A
 | `-Sections`        | Bereiche (`All` oder Schlüssel, siehe `-ListSections`)                       | Menü     |
 | `-OutputFormat`    | `Auto` (Excel, sonst Fallback), `Excel`, `Json`, `Xml`                       | `Auto`   |
 | `-OutputDirectory` | Zielverzeichnis                                                              | `SophosExport_<IP>_<Zeit>` |
+| `-NoHtml`          | Unterdrückt die zusätzliche Erstellung des HTML-Reports                      | –        |
 | `-ListSections`    | Zeigt alle Bereichs-Schlüssel an und beendet das Skript                      | –        |
 | `-TimeoutSec`      | Timeout pro API-Anfrage (Sekunden)                                           | `60`     |
 
@@ -145,11 +154,12 @@ Module ohne konfigurierte Objekte melden in der Übersicht
 
 ```
 SophosExport_192.168.1.1_2026-07-21_18-00-00/
-└── Sophos_Firewall_Export_2026-07-21_18-00-00.xlsx
-    ├── Blatt "Uebersicht"   (alle Module mit Anzahl + Status)
-    ├── Blatt "FirewallRule" (eine Zeile pro Regel, alle Felder als Spalten)
-    ├── Blatt "IPHost"
-    └── ... (ein Blatt pro Modul mit Daten)
+├── Sophos_Firewall_Export_2026-07-21_18-00-00.xlsx
+│   ├── Blatt "Uebersicht"   (alle Module mit Anzahl + Status)
+│   ├── Blatt "FirewallRule" (eine Zeile pro Regel, alle Felder als Spalten)
+│   ├── Blatt "IPHost"
+│   └── ... (ein Blatt pro Modul mit Daten)
+└── Sophos_Firewall_Konfiguration.html   (HTML-Report)
 ```
 
 **Datei-Modus** (`-OutputFormat Json`/`Xml` oder automatischer Fallback):
@@ -160,7 +170,28 @@ SophosExport_192.168.1.1_2026-07-21_18-00-00/
 ├── FirewallRules_FirewallRule.xml    (API-Rohantwort)
 ├── Hosts_IPHost.json
 ├── ...
-└── _Uebersicht.json
+├── _Uebersicht.json
+└── Sophos_Firewall_Konfiguration.html   (HTML-Report)
+```
+
+## HTML-Report (`Generate-FirewallHtml.ps1`)
+
+Der HTML-Report wird vom Export-Skript automatisch mit erzeugt, sofern
+`Generate-FirewallHtml.ps1` im selben Ordner wie das Export-Skript liegt.
+Liegen keine JSON-Dateien im Ausgabeverzeichnis (z. B. bei reinem Excel-
+oder XML-Export), werden sie für den Report temporär erzeugt und danach
+wieder gelöscht.
+
+Das Skript ist auch **eigenständig** nutzbar, um aus einem früheren Export
+(JSON-Dateien + `_Uebersicht.json`) nachträglich einen Report zu bauen:
+
+```powershell
+# Gerät/Datum werden aus dem Ordnernamen SophosExport_<IP>_<Zeit> abgeleitet:
+.\Generate-FirewallHtml.ps1 -SourceDir ".\SophosExport_192.168.1.1_2026-07-21_18-00-00"
+
+# Oder explizit angeben:
+.\Generate-FirewallHtml.ps1 -SourceDir "C:\Export" -OutFile "C:\Export\report.html" `
+    -Device 192.168.1.1 -ExportDate "2026-07-21 18:00"
 ```
 
 ## Technischer Hintergrund

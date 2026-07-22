@@ -8,8 +8,9 @@ als Spalten) oder – falls Excel-Export nicht möglich ist – automatisch in
 
 Zusätzlich wird am Ende jedes Exports automatisch ein **HTML-Report**
 (`Sophos_Firewall_Konfiguration.html`) mit Navigation, Zusammenfassung und
-einer Tabelle pro Modul erstellt (über `Generate-FirewallHtml.ps1`) – so
-erhält man standardmäßig **Excel und HTML** in einem Durchlauf.
+einer Tabelle pro Modul erstellt – so erhält man standardmäßig
+**Excel und HTML** in einem Durchlauf. Alles ist in **einem einzigen Skript**
+enthalten.
 
 ## Funktionen
 
@@ -174,25 +175,20 @@ SophosExport_192.168.1.1_2026-07-21_18-00-00/
 └── Sophos_Firewall_Konfiguration.html   (HTML-Report)
 ```
 
-## HTML-Report (`Generate-FirewallHtml.ps1`)
+## HTML-Report
 
-Der HTML-Report wird vom Export-Skript automatisch mit erzeugt, sofern
-`Generate-FirewallHtml.ps1` im selben Ordner wie das Export-Skript liegt.
-Liegen keine JSON-Dateien im Ausgabeverzeichnis (z. B. bei reinem Excel-
-oder XML-Export), werden sie für den Report temporär erzeugt und danach
-wieder gelöscht.
+Der HTML-Report ist direkt in `Export-SophosFirewallConfig.ps1` integriert
+und wird bei jedem Export automatisch mit erzeugt (abschaltbar mit `-NoHtml`).
+Er enthält:
 
-Das Skript ist auch **eigenständig** nutzbar, um aus einem früheren Export
-(JSON-Dateien + `_Uebersicht.json`) nachträglich einen Report zu bauen:
+- Kopfzeile mit Gerät (Firewall-IP), Export- und Erstellungsdatum
+- seitliche Navigation mit Datensatzanzahl pro Modul
+- Zusammenfassungstabelle aller Bereiche
+- einen Abschnitt mit Tabelle pro Modul; leere Artefakt-Spalten werden
+  entfernt, sehr lange Werte gekürzt
 
-```powershell
-# Gerät/Datum werden aus dem Ordnernamen SophosExport_<IP>_<Zeit> abgeleitet:
-.\Generate-FirewallHtml.ps1 -SourceDir ".\SophosExport_192.168.1.1_2026-07-21_18-00-00"
-
-# Oder explizit angeben:
-.\Generate-FirewallHtml.ps1 -SourceDir "C:\Export" -OutFile "C:\Export\report.html" `
-    -Device 192.168.1.1 -ExportDate "2026-07-21 18:00"
-```
+Die Datei ist eigenständig (kein Internet/JavaScript nötig) und kann direkt
+im Browser geöffnet oder weitergegeben werden.
 
 ## Technischer Hintergrund
 

@@ -12,8 +12,15 @@ einer Tabelle pro Modul erstellt – so erhält man standardmäßig
 **Excel und HTML** in einem Durchlauf. Alles ist in **einem einzigen Skript**
 enthalten.
 
+**Neu in Version 2.0:** eine **grafische Oberfläche** (`-Gui` bzw.
+Doppelklick auf `Start-GUI.cmd`) mit Verbindungstest, Bereichsauswahl per
+Klick, Formatwahl und Live-Fortschritt pro Modul.
+
 ## Funktionen
 
+- **Grafische Oberfläche** im Browser (`-Gui`): Verbindung testen, Bereiche
+  anklicken, Format wählen, Fortschritt live verfolgen, Ergebnis-Ordner und
+  HTML-Report direkt öffnen – inklusive Dark Mode
 - Interaktive Abfrage von **Firewall-IP-Adresse** und **API-Zugangsdaten**
   (Passwort wird verdeckt eingegeben)
 - Erreichbarkeits- und **Login-Prüfung** vor dem Export (bis zu 3 Versuche bei
@@ -56,7 +63,40 @@ enthalten.
 > **Hinweis:** Excel selbst muss **nicht** installiert sein – die `.xlsx`-Datei
 > wird direkt vom ImportExcel-Modul erzeugt.
 
-## Schnellstart (interaktiv)
+## Grafische Oberfläche (GUI)
+
+**Windows:** Doppelklick auf **`Start-GUI.cmd`** – oder in PowerShell:
+
+```powershell
+.\Export-SophosFirewallConfig.ps1 -Gui
+```
+
+Das Skript startet einen kleinen Webserver **nur auf diesem Rechner**
+(`127.0.0.1`) und öffnet die Oberfläche im Standardbrowser. Das
+PowerShell-Fenster muss währenddessen geöffnet bleiben; es zeigt
+zusätzlich ein Protokoll an.
+
+1. **Verbindung:** Firewall-IP, Port, Benutzername und Passwort eingeben →
+   *Verbindung testen* (prüft Erreichbarkeit und Anmeldung)
+2. **Konfigurationsbereiche:** gewünschte Bereiche anklicken (*Alle* / *Keine*)
+3. **Ausgabe:** Format (*Automatisch*, *Excel*, *JSON*, *XML*), HTML-Report,
+   Zielordner und Timeout festlegen
+4. **Export starten:** Fortschritt und Datensatzanzahl pro Modul erscheinen
+   live; danach lassen sich die erzeugten Dateien, der HTML-Report und der
+   Ordner direkt öffnen. *Beenden* stoppt die Oberfläche.
+
+Weitere Parameter werden als Vorbelegung übernommen (außer dem Passwort):
+
+```powershell
+.\Export-SophosFirewallConfig.ps1 -Gui -FirewallIP 192.168.1.1 -Username admin -OutputFormat Json
+```
+
+> **Sicherheit:** Der GUI-Server lauscht ausschließlich auf `127.0.0.1`,
+> verlangt bei jeder Anfrage ein zufälliges Sitzungs-Token (in der Adresse,
+> die das Skript öffnet) und prüft den Host-Header. Zugangsdaten werden nur im
+> Arbeitsspeicher gehalten und nicht gespeichert.
+
+## Schnellstart (Konsole, interaktiv)
 
 ```powershell
 # ggf. Ausführung von Skripten erlauben (einmalig, nur aktuelle Sitzung):
@@ -123,6 +163,9 @@ Auswahl: A
 | `-NoHtml`          | Unterdrückt die zusätzliche Erstellung des HTML-Reports                      | –        |
 | `-ListSections`    | Zeigt alle Bereichs-Schlüssel an und beendet das Skript                      | –        |
 | `-TimeoutSec`      | Timeout pro API-Anfrage (Sekunden)                                           | `60`     |
+| `-Gui`             | Startet die grafische Oberfläche im Browser                                   | –        |
+| `-GuiPort`         | Lokaler Port der Oberfläche (`0` = automatisch freien Port wählen)            | `0`      |
+| `-NoBrowser`       | Mit `-Gui`: keinen Browser öffnen, nur die Adresse in der Konsole anzeigen     | –        |
 
 ### Exportierbare Bereiche
 
@@ -217,6 +260,8 @@ zusammengefasst) und anschließend exportiert.
 | `Excel-Export nicht moeglich (Modul "ImportExcel" fehlt)`     | Ohne Internetzugang: `Install-Module ImportExcel` auf einem Rechner mit Internet, Modul kopieren – oder `-OutputFormat Json`/`Xml` verwenden. |
 | Blatt fehlt in der Excel-Datei                                | Module ohne Datensätze werden nur in der Übersicht aufgeführt (Status 526). |
 | Skript startet nicht (`... kann nicht geladen werden`)        | `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass` |
+| GUI: Browser öffnet sich nicht                                | Die in der Konsole angezeigte Adresse (`http://127.0.0.1:<Port>/?t=…`) manuell im Browser aufrufen. |
+| GUI: „Keine Verbindung zum Export-Skript"                     | Das PowerShell-Fenster wurde geschlossen bzw. *Beenden* gedrückt – GUI neu starten. |
 
 ## Sicherheitshinweise
 
@@ -229,6 +274,10 @@ zusammengefasst) und anschließend exportiert.
 
 ## Getestet
 
+- Version 2.0: GUI mit PowerShell 7.4 (Linux) und Chromium gegen eine
+  simulierte Sophos-XML-API: Verbindungstest (richtiges/falsches Passwort),
+  Bereichsauswahl, Export als Excel (inkl. HTML-Report) und JSON, Modul mit
+  fehlerhafter Antwort, Beenden; Darstellung hell/dunkel und mobil
 - PowerShell 7.6 (Linux) gegen eine simulierte Sophos-XML-API
   (Endpunkt `/webconsole/APIController`, SFOS-Antwortformat), inkl.:
   - interaktiver Ablauf (IP → Zugangsdaten → Menü, Auswahl `1,3-5` und `A`)

@@ -1,286 +1,286 @@
-# Sophos Firewall – Konfigurations-Export (PowerShell + XML-API)
+# Sophos Firewall – Configuration Export (PowerShell + XML API)
 
-`Export-SophosFirewallConfig.ps1` verbindet sich per HTTPS mit der **XML-API einer
-lokalen Sophos Firewall (SFOS)** und exportiert Firewall-Regeln und Einstellungen
-wahlweise in eine **Excel-Datei** (ein Tabellenblatt pro Bereich, mit allen Feldern
-als Spalten) oder – falls Excel-Export nicht möglich ist – automatisch in
-**JSON- und XML-Dateien pro Bereich**.
+`Export-SophosFirewallConfig.ps1` connects via HTTPS to the **XML API of a
+local Sophos Firewall (SFOS)** and exports firewall rules and settings either
+to an **Excel file** (one worksheet per module, with all fields as columns)
+or – if the Excel export is not possible – automatically to
+**JSON and XML files per module**.
 
-Zusätzlich wird am Ende jedes Exports automatisch ein **HTML-Report**
-(`Sophos_Firewall_Konfiguration.html`) mit Navigation, Zusammenfassung und
-einer Tabelle pro Modul erstellt – so erhält man standardmäßig
-**Excel und HTML** in einem Durchlauf. Alles ist in **einem einzigen Skript**
-enthalten.
+In addition, an **HTML report** (`Sophos_Firewall_Configuration.html`) with
+navigation, summary and one table per module is created automatically at the
+end of every export – so by default you get **Excel and HTML** in a single
+run. Everything is contained in **one single script**.
 
-**Neu in Version 2.0:** eine **grafische Oberfläche** (`-Gui` bzw.
-Doppelklick auf `Start-GUI.cmd`) mit Verbindungstest, Bereichsauswahl per
-Klick, Formatwahl und Live-Fortschritt pro Modul.
+**New in version 2.0:** a **graphical interface** (`-Gui` or double-click
+`Start-GUI.cmd`) with connection test, point-and-click section selection,
+format selection and live progress per module.
 
-## Funktionen
+## Features
 
-- **Grafische Oberfläche** im Browser (`-Gui`): Verbindung testen, Bereiche
-  anklicken, Format wählen, Fortschritt live verfolgen, Ergebnis-Ordner und
-  HTML-Report direkt öffnen – inklusive Dark Mode
-- Interaktive Abfrage von **Firewall-IP-Adresse** und **API-Zugangsdaten**
-  (Passwort wird verdeckt eingegeben)
-- Erreichbarkeits- und **Login-Prüfung** vor dem Export (bis zu 3 Versuche bei
-  falschen Zugangsdaten)
-- **Auswahlmenü**: nur bestimmte Konfigurationsbereiche exportieren oder alles
-  (Mehrfachauswahl mit Komma und Bereichen, z. B. `1,3,5-8`, `A` = alles)
-- **Excel-Export** mit dem PowerShell-Modul [ImportExcel](https://www.powershellgallery.com/packages/ImportExcel)
-  (wird bei Bedarf automatisch installiert):
-  - Tabellenblatt **„Uebersicht"** mit Bereich, Modul, Datensatzanzahl und Status
-  - **ein Tabellenblatt pro API-Modul** (z. B. `FirewallRule`, `IPHost`, …)
-  - verschachtelte XML-Felder werden zu Spalten abgeflacht
-    (`NetworkPolicy.SourceZones.Zone`), Listen zu kommagetrennten Werten
+- **Graphical interface** in the browser (`-Gui`): test the connection, click
+  the sections, choose the format, follow the progress live, open the result
+  folder and the HTML report directly – including dark mode
+- Interactive prompt for the **firewall IP address** and **API credentials**
+  (the password is entered hidden)
+- Reachability and **login check** before the export (up to 3 attempts with
+  wrong credentials)
+- **Selection menu**: export only specific configuration sections or
+  everything (multiple selection with commas and ranges, e.g. `1,3,5-8`,
+  `A` = everything)
+- **Excel export** with the PowerShell module [ImportExcel](https://www.powershellgallery.com/packages/ImportExcel)
+  (installed automatically if needed):
+  - worksheet **"Overview"** with section, module, record count and status
+  - **one worksheet per API module** (e.g. `FirewallRule`, `IPHost`, …)
+  - nested XML fields are flattened into columns
+    (`NetworkPolicy.SourceZones.Zone`), lists into comma-separated values
     (`HTTP, HTTPS, DNS`)
-  - Autofilter, fixierte und fett formatierte Kopfzeile
-- **Automatischer Fallback**: steht ImportExcel nicht zur Verfügung, wird pro
-  Bereich eine JSON-Datei (aufbereitete Tabellendaten) **und** eine XML-Datei
-  (API-Rohantwort) erstellt, plus `_Uebersicht.json`
-- **HTML-Report**: nach jedem Export entsteht zusätzlich eine übersichtliche
-  HTML-Seite (`Sophos_Firewall_Konfiguration.html`) mit Inhaltsverzeichnis,
-  Zusammenfassung und einer Tabelle pro Modul (abschaltbar mit `-NoHtml`)
-- Vollständig **skriptbar** über Parameter (für Automatisierung/Aufgabenplanung)
-- Funktioniert mit **Windows PowerShell 5.1** und **PowerShell 7+**
-  (Windows/Linux/macOS); selbstsignierte Firewall-Zertifikate werden akzeptiert
+  - auto filter, frozen and bold header row
+- **Automatic fallback**: if ImportExcel is not available, a JSON file
+  (processed table data) **and** an XML file (raw API response) are created
+  per module, plus `_Overview.json`
+- **HTML report**: after every export, a clear HTML page
+  (`Sophos_Firewall_Configuration.html`) with table of contents, summary and
+  one table per module is created as well (can be disabled with `-NoHtml`)
+- Fully **scriptable** via parameters (for automation / Task Scheduler)
+- Works with **Windows PowerShell 5.1** and **PowerShell 7+**
+  (Windows/Linux/macOS); self-signed firewall certificates are accepted
 
-## Voraussetzungen
+## Requirements
 
-1. **PowerShell 5.1 oder neuer** (empfohlen: PowerShell 7)
-2. **API-Zugriff auf der Sophos Firewall aktivieren:**
-   - Anmelden an der Web-Admin-Konsole (Standard: `https://<Firewall-IP>:4444`)
-   - **Backup & Firmware → API**
-   - **API-Konfiguration aktivieren**
-   - Die **IP-Adresse des Rechners, der das Skript ausführt**, unter
-     *„Zulässige IP-Adresse"* eintragen
-3. Ein **Administrator-Konto** der Firewall (Benutzername + Passwort) – die
-   XML-API nutzt die normalen Admin-Zugangsdaten
-4. Für den Excel-Export: Internetzugang zur PowerShell Gallery **oder** das
-   Modul ImportExcel bereits installiert
+1. **PowerShell 5.1 or newer** (recommended: PowerShell 7)
+2. **Enable API access on the Sophos Firewall:**
+   - Sign in to the web admin console (default: `https://<firewall-ip>:4444`)
+   - **Backup & firmware → API**
+   - **Enable API configuration**
+   - Add the **IP address of the computer running the script** under
+     *"Allowed IP address"*
+3. An **administrator account** of the firewall (username + password) – the
+   XML API uses the regular admin credentials
+4. For the Excel export: internet access to the PowerShell Gallery **or** the
+   ImportExcel module already installed
    (`Install-Module ImportExcel -Scope CurrentUser`)
 
-> **Hinweis:** Excel selbst muss **nicht** installiert sein – die `.xlsx`-Datei
-> wird direkt vom ImportExcel-Modul erzeugt.
+> **Note:** Excel itself does **not** need to be installed – the `.xlsx` file
+> is created directly by the ImportExcel module.
 
-## Grafische Oberfläche (GUI)
+## Graphical interface (GUI)
 
-**Windows:** Doppelklick auf **`Start-GUI.cmd`** – oder in PowerShell:
+**Windows:** double-click **`Start-GUI.cmd`** – or in PowerShell:
 
 ```powershell
 .\Export-SophosFirewallConfig.ps1 -Gui
 ```
 
-Das Skript startet einen kleinen Webserver **nur auf diesem Rechner**
-(`127.0.0.1`) und öffnet die Oberfläche im Standardbrowser. Das
-PowerShell-Fenster muss währenddessen geöffnet bleiben; es zeigt
-zusätzlich ein Protokoll an.
+The script starts a small web server **on this computer only**
+(`127.0.0.1`) and opens the interface in the default browser. The
+PowerShell window must stay open meanwhile; it additionally shows a log.
 
-1. **Verbindung:** Firewall-IP, Port, Benutzername und Passwort eingeben →
-   *Verbindung testen* (prüft Erreichbarkeit und Anmeldung)
-2. **Konfigurationsbereiche:** gewünschte Bereiche anklicken (*Alle* / *Keine*)
-3. **Ausgabe:** Format (*Automatisch*, *Excel*, *JSON*, *XML*), HTML-Report,
-   Zielordner und Timeout festlegen
-4. **Export starten:** Fortschritt und Datensatzanzahl pro Modul erscheinen
-   live; danach lassen sich die erzeugten Dateien, der HTML-Report und der
-   Ordner direkt öffnen. *Beenden* stoppt die Oberfläche.
+1. **Connection:** enter firewall IP, port, username and password →
+   *Test connection* (checks reachability and login)
+2. **Configuration sections:** click the sections you want (*All* / *None*)
+3. **Output:** choose the format (*Automatic*, *Excel*, *JSON*, *XML*), HTML
+   report, target folder and timeout
+4. **Start export:** progress and record count per module appear live;
+   afterwards you can open the created files, the HTML report and the folder
+   directly. *Quit* stops the interface.
 
-Weitere Parameter werden als Vorbelegung übernommen (außer dem Passwort):
+Other parameters are used to pre-fill the form (except the password):
 
 ```powershell
 .\Export-SophosFirewallConfig.ps1 -Gui -FirewallIP 192.168.1.1 -Username admin -OutputFormat Json
 ```
 
-> **Sicherheit:** Der GUI-Server lauscht ausschließlich auf `127.0.0.1`,
-> verlangt bei jeder Anfrage ein zufälliges Sitzungs-Token (in der Adresse,
-> die das Skript öffnet) und prüft den Host-Header. Zugangsdaten werden nur im
-> Arbeitsspeicher gehalten und nicht gespeichert.
+> **Security:** The GUI server listens on `127.0.0.1` only, requires a
+> random session token with every request (included in the address the
+> script opens) and checks the Host header. Credentials are kept in memory
+> only and are not stored.
 
-## Schnellstart (Konsole, interaktiv)
+## Quick start (console, interactive)
 
 ```powershell
-# ggf. Ausführung von Skripten erlauben (einmalig, nur aktuelle Sitzung):
+# allow running scripts if necessary (once, current session only):
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 
 .\Export-SophosFirewallConfig.ps1
 ```
 
-Ablauf:
+Workflow:
 
-1. **Firewall IP-Adresse** eingeben (z. B. `192.168.1.1`)
-2. **API-Benutzername** und **API-Passwort** eingeben (Passwort verdeckt)
-3. Im **Auswahlmenü** die gewünschten Bereiche wählen:
+1. Enter the **firewall IP address** (e.g. `192.168.1.1`)
+2. Enter the **API username** and **API password** (password hidden)
+3. Choose the sections in the **selection menu**:
 
 ```
 =============================================================
-  Welche Konfigurationsbereiche sollen exportiert werden?
+  Which configuration sections should be exported?
 =============================================================
-  [ 1] Firewall-Regeln                (FirewallRule, FirewallRuleGroup)
-  [ 2] NAT-Regeln                     (NATRule)
-  [ 3] Netzwerk-Objekte (Hosts)       (IPHost, IPHostGroup, FQDNHost, ...)
-  [ 4] Dienste (Services)             (Services, ServiceGroup)
+  [ 1] Firewall rules                 (FirewallRule, FirewallRuleGroup)
+  [ 2] NAT rules                      (NATRule)
+  [ 3] Network objects (hosts)        (IPHost, IPHostGroup, FQDNHost, ...)
+  [ 4] Services                       (Services, ServiceGroup)
   ...
-  [ A] ALLES exportieren
-  [ Q] Abbrechen
+  [ A] Export EVERYTHING
+  [ Q] Cancel
 
-Mehrfachauswahl mit Komma und Bereichen moeglich, z.B.: 1,3,5-8
-Auswahl: A
+Multiple selection with commas and ranges, e.g.: 1,3,5-8
+Selection: A
 ```
 
-4. Der Export landet im Unterordner `SophosExport_<IP>_<Zeitstempel>`.
+4. The export is saved in the subfolder `SophosExport_<IP>_<timestamp>`.
 
-## Nutzung mit Parametern (Automatisierung)
+## Usage with parameters (automation)
 
 ```powershell
-# Alles nach Excel exportieren:
+# Export everything to Excel:
 .\Export-SophosFirewallConfig.ps1 -FirewallIP 192.168.1.1 `
-    -Username admin -Password 'Geheim123!' -Sections All
+    -Username admin -Password 'Secret123!' -Sections All
 
-# Nur Firewall-Regeln und Hosts, als JSON:
+# Only firewall rules and hosts, as JSON:
 .\Export-SophosFirewallConfig.ps1 -FirewallIP 192.168.1.1 `
-    -Username admin -Password 'Geheim123!' `
+    -Username admin -Password 'Secret123!' `
     -Sections FirewallRules,Hosts -OutputFormat Json
 
-# Rohe XML-API-Antworten sichern (z. B. als Backup/Doku):
+# Save raw XML API responses (e.g. as backup/documentation):
 .\Export-SophosFirewallConfig.ps1 -FirewallIP 192.168.1.1 `
-    -Username admin -Password 'Geheim123!' -Sections All -OutputFormat Xml
+    -Username admin -Password 'Secret123!' -Sections All -OutputFormat Xml
 
-# Verfügbare Bereichs-Schlüssel anzeigen:
+# List the available section keys:
 .\Export-SophosFirewallConfig.ps1 -ListSections
 ```
 
-### Parameterübersicht
+### Parameters
 
-| Parameter          | Beschreibung                                                                 | Standard |
+| Parameter          | Description                                                                  | Default  |
 |--------------------|------------------------------------------------------------------------------|----------|
-| `-FirewallIP`      | IP-Adresse oder Hostname der Firewall (sonst interaktive Abfrage)            | –        |
-| `-Port`            | HTTPS-Port der Admin-Konsole/API                                             | `4444`   |
-| `-Username`        | API-Benutzername (sonst interaktive Abfrage)                                 | –        |
-| `-Password`        | API-Passwort im Klartext – **nur für Automatisierung** (sonst verdeckte Abfrage) | –    |
-| `-Sections`        | Bereiche (`All` oder Schlüssel, siehe `-ListSections`)                       | Menü     |
-| `-OutputFormat`    | `Auto` (Excel, sonst Fallback), `Excel`, `Json`, `Xml`                       | `Auto`   |
-| `-OutputDirectory` | Zielverzeichnis                                                              | `SophosExport_<IP>_<Zeit>` |
-| `-NoHtml`          | Unterdrückt die zusätzliche Erstellung des HTML-Reports                      | –        |
-| `-ListSections`    | Zeigt alle Bereichs-Schlüssel an und beendet das Skript                      | –        |
-| `-TimeoutSec`      | Timeout pro API-Anfrage (Sekunden)                                           | `60`     |
-| `-Gui`             | Startet die grafische Oberfläche im Browser                                   | –        |
-| `-GuiPort`         | Lokaler Port der Oberfläche (`0` = automatisch freien Port wählen)            | `0`      |
-| `-NoBrowser`       | Mit `-Gui`: keinen Browser öffnen, nur die Adresse in der Konsole anzeigen     | –        |
+| `-FirewallIP`      | IP address or hostname of the firewall (otherwise prompted)                  | –        |
+| `-Port`            | HTTPS port of the admin console/API                                          | `4444`   |
+| `-Username`        | API username (otherwise prompted)                                            | –        |
+| `-Password`        | API password in plain text – **for automation only** (otherwise hidden prompt) | –      |
+| `-Sections`        | Sections (`All` or keys, see `-ListSections`)                                | menu     |
+| `-OutputFormat`    | `Auto` (Excel, otherwise fallback), `Excel`, `Json`, `Xml`                   | `Auto`   |
+| `-OutputDirectory` | Target directory                                                             | `SophosExport_<IP>_<time>` |
+| `-NoHtml`          | Suppresses the additional HTML report                                        | –        |
+| `-ListSections`    | Lists all section keys and exits                                             | –        |
+| `-TimeoutSec`      | Timeout per API request (seconds)                                            | `60`     |
+| `-Gui`             | Starts the graphical interface in the browser                                | –        |
+| `-GuiPort`         | Local port of the interface (`0` = pick a free port automatically)           | `0`      |
+| `-NoBrowser`       | With `-Gui`: do not open a browser, only show the address in the console     | –        |
 
-### Exportierbare Bereiche
+### Exportable sections
 
-| Nr | Schlüssel (`-Sections`) | Bereich                    | API-Module (Sophos XML-API)                                  |
-|----|--------------------------|----------------------------|--------------------------------------------------------------|
-| 1  | `FirewallRules`          | Firewall-Regeln            | `FirewallRule`, `FirewallRuleGroup`                          |
-| 2  | `NatRules`               | NAT-Regeln                 | `NATRule`                                                    |
-| 3  | `Hosts`                  | Netzwerk-Objekte (Hosts)   | `IPHost`, `IPHostGroup`, `FQDNHost`, `FQDNHostGroup`, `MACHost` |
-| 4  | `Services`               | Dienste                    | `Services`, `ServiceGroup`                                   |
-| 5  | `Zones`                  | Zonen                      | `Zone`                                                       |
-| 6  | `Interfaces`             | Interfaces und Netzwerk    | `Interface`, `VLAN`, `LAG`, `BridgePair`                     |
-| 7  | `Routing`                | Statische Routen           | `UnicastRoute`                                               |
-| 8  | `DnsDhcp`                | DNS und DHCP               | `DNS`, `DHCPServer`                                          |
-| 9  | `Users`                  | Benutzer und Gruppen       | `User`, `Group`                                              |
-| 10 | `WebFilter`              | Webfilter                  | `WebFilterPolicy`, `WebFilterURLGroup`                       |
-| 11 | `AppFilter`              | Applikationsfilter         | `ApplicationFilterPolicy`                                    |
-| 12 | `IPS`                    | IPS-Richtlinien            | `IPSPolicy`                                                  |
-| 13 | `VPN`                    | VPN (IPsec / SSL)          | `VPNIPSecConnection`, `SSLVPNPolicy`                         |
-| 14 | `Wireless`               | WLAN                       | `WirelessNetworks`, `AccessPoint`                            |
-| 15 | `Certificates`           | Zertifikate                | `Certificate`, `CertificateAuthority`                        |
-| 16 | `Schedules`              | Zeitpläne                  | `Schedule`                                                   |
-| 17 | `System`                 | System und Verwaltung      | `AdminSettings`, `Notification`, `SyslogServers`, `SNMPAgentConfiguration`, `BackupRestore` |
+| No | Key (`-Sections`)  | Section                     | API modules (Sophos XML API)                                 |
+|----|--------------------|-----------------------------|--------------------------------------------------------------|
+| 1  | `FirewallRules`    | Firewall rules              | `FirewallRule`, `FirewallRuleGroup`                          |
+| 2  | `NatRules`         | NAT rules                   | `NATRule`                                                    |
+| 3  | `Hosts`            | Network objects (hosts)     | `IPHost`, `IPHostGroup`, `FQDNHost`, `FQDNHostGroup`, `MACHost` |
+| 4  | `Services`         | Services                    | `Services`, `ServiceGroup`                                   |
+| 5  | `Zones`            | Zones                       | `Zone`                                                       |
+| 6  | `Interfaces`       | Interfaces and network      | `Interface`, `VLAN`, `LAG`, `BridgePair`                     |
+| 7  | `Routing`          | Routing (static routes)     | `UnicastRoute`                                               |
+| 8  | `DnsDhcp`          | DNS and DHCP                | `DNS`, `DHCPServer`                                          |
+| 9  | `Users`            | Users and groups            | `User`, `Group`                                              |
+| 10 | `WebFilter`        | Web filter                  | `WebFilterPolicy`, `WebFilterURLGroup`                       |
+| 11 | `AppFilter`        | Application filter          | `ApplicationFilterPolicy`                                    |
+| 12 | `IPS`              | IPS policies                | `IPSPolicy`                                                  |
+| 13 | `VPN`              | VPN (IPsec / SSL)           | `VPNIPSecConnection`, `SSLVPNPolicy`                         |
+| 14 | `Wireless`         | Wireless                    | `WirelessNetworks`, `AccessPoint`                            |
+| 15 | `Certificates`     | Certificates                | `Certificate`, `CertificateAuthority`                        |
+| 16 | `Schedules`        | Schedules                   | `Schedule`                                                   |
+| 17 | `System`           | System and administration   | `AdminSettings`, `Notification`, `SyslogServers`, `SNMPAgentConfiguration`, `BackupRestore` |
 
-Module ohne konfigurierte Objekte melden in der Übersicht
-`Status 526 - Record does not exist` – das ist normal und kein Fehler.
+Modules without configured objects report
+`Status 526 - Record does not exist` in the overview – this is normal and not
+an error.
 
-## Ausgabe
+## Output
 
-**Excel-Modus** (`-OutputFormat Auto`/`Excel`):
+**Excel mode** (`-OutputFormat Auto`/`Excel`):
 
 ```
 SophosExport_192.168.1.1_2026-07-21_18-00-00/
 ├── Sophos_Firewall_Export_2026-07-21_18-00-00.xlsx
-│   ├── Blatt "Uebersicht"   (alle Module mit Anzahl + Status)
-│   ├── Blatt "FirewallRule" (eine Zeile pro Regel, alle Felder als Spalten)
-│   ├── Blatt "IPHost"
-│   └── ... (ein Blatt pro Modul mit Daten)
-└── Sophos_Firewall_Konfiguration.html   (HTML-Report)
+│   ├── Sheet "Overview"     (all modules with count + status)
+│   ├── Sheet "FirewallRule" (one row per rule, all fields as columns)
+│   ├── Sheet "IPHost"
+│   └── ... (one sheet per module with data)
+└── Sophos_Firewall_Configuration.html   (HTML report)
 ```
 
-**Datei-Modus** (`-OutputFormat Json`/`Xml` oder automatischer Fallback):
+**File mode** (`-OutputFormat Json`/`Xml` or automatic fallback):
 
 ```
 SophosExport_192.168.1.1_2026-07-21_18-00-00/
-├── FirewallRules_FirewallRule.json   (aufbereitete Tabellendaten)
-├── FirewallRules_FirewallRule.xml    (API-Rohantwort)
+├── FirewallRules_FirewallRule.json   (processed table data)
+├── FirewallRules_FirewallRule.xml    (raw API response)
 ├── Hosts_IPHost.json
 ├── ...
-├── _Uebersicht.json
-└── Sophos_Firewall_Konfiguration.html   (HTML-Report)
+├── _Overview.json
+└── Sophos_Firewall_Configuration.html   (HTML report)
 ```
 
-## HTML-Report
+## HTML report
 
-Der HTML-Report ist direkt in `Export-SophosFirewallConfig.ps1` integriert
-und wird bei jedem Export automatisch mit erzeugt (abschaltbar mit `-NoHtml`).
-Er enthält:
+The HTML report is built into `Export-SophosFirewallConfig.ps1` and is
+created automatically with every export (can be disabled with `-NoHtml`).
+It contains:
 
-- Kopfzeile mit Gerät (Firewall-IP), Export- und Erstellungsdatum
-- seitliche Navigation mit Datensatzanzahl pro Modul
-- Zusammenfassungstabelle aller Bereiche
-- einen Abschnitt mit Tabelle pro Modul; leere Artefakt-Spalten werden
-  entfernt, sehr lange Werte gekürzt
+- a header with device (firewall IP), export and creation date
+- side navigation with the record count per module
+- a summary table of all sections
+- one section with a table per module; empty artifact columns are removed,
+  very long values are truncated
 
-Die Datei ist eigenständig (kein Internet/JavaScript nötig) und kann direkt
-im Browser geöffnet oder weitergegeben werden.
+The file is self-contained (no internet/JavaScript required) and can be
+opened directly in the browser or shared.
 
-## Technischer Hintergrund
+## Technical background
 
-Das Skript sendet pro Modul einen `Get`-Request an den XML-API-Endpunkt der
-Firewall:
+For every module the script sends a `Get` request to the XML API endpoint of
+the firewall:
 
 ```
-POST https://<Firewall-IP>:4444/webconsole/APIController
+POST https://<firewall-ip>:4444/webconsole/APIController
      reqxml=<Request>
               <Login><Username>...</Username><Password>...</Password></Login>
               <Get><FirewallRule/></Get>
             </Request>
 ```
 
-Die XML-Antwort wird geparst, jeder Datensatz rekursiv zu einer Tabellenzeile
-abgeflacht (verschachtelte Ebenen mit `.` verbunden, Listen mit `, `
-zusammengefasst) und anschließend exportiert.
+The XML response is parsed, every record is recursively flattened into a
+table row (nested levels joined with `.`, lists combined with `, `) and then
+exported.
 
-## Fehlerbehebung
+## Troubleshooting
 
-| Meldung / Problem                                            | Ursache und Lösung |
-|--------------------------------------------------------------|--------------------|
-| `Anmeldung fehlgeschlagen: Benutzername oder Passwort falsch` | Zugangsdaten prüfen (Admin-Konto der Firewall). |
-| `API-Zugriff verweigert: API operation not permitted from …`  | Die IP des Skript-Rechners ist auf der Firewall nicht als API-IP freigegeben → **Backup & Firmware → API** eintragen. |
-| `… ist nicht erreichbar (TCP-Timeout)`                        | IP/Port prüfen (Standard 4444), Firewall-Regeln/Zonen-Zugriff (Admin-Dienste HTTPS) für das Quellnetz prüfen. |
-| `Excel-Export nicht moeglich (Modul "ImportExcel" fehlt)`     | Ohne Internetzugang: `Install-Module ImportExcel` auf einem Rechner mit Internet, Modul kopieren – oder `-OutputFormat Json`/`Xml` verwenden. |
-| Blatt fehlt in der Excel-Datei                                | Module ohne Datensätze werden nur in der Übersicht aufgeführt (Status 526). |
-| Skript startet nicht (`... kann nicht geladen werden`)        | `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass` |
-| GUI: Browser öffnet sich nicht                                | Die in der Konsole angezeigte Adresse (`http://127.0.0.1:<Port>/?t=…`) manuell im Browser aufrufen. |
-| GUI: „Keine Verbindung zum Export-Skript"                     | Das PowerShell-Fenster wurde geschlossen bzw. *Beenden* gedrückt – GUI neu starten. |
+| Message / problem                                             | Cause and solution |
+|---------------------------------------------------------------|--------------------|
+| `Login failed: wrong username or password`                    | Check the credentials (admin account of the firewall). |
+| `API access denied: API operation not permitted from …`       | The IP of the script computer is not allowed as API IP on the firewall → add it under **Backup & firmware → API**. |
+| `… is not reachable (TCP timeout)`                            | Check IP/port (default 4444) and the firewall rules/zone access (admin services HTTPS) for the source network. |
+| `Excel export not possible (module "ImportExcel" missing)`    | Without internet access: run `Install-Module ImportExcel` on a computer with internet and copy the module – or use `-OutputFormat Json`/`Xml`. |
+| Sheet missing in the Excel file                               | Modules without records are only listed in the overview (status 526). |
+| Script does not start (`... cannot be loaded`)                | `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass` |
+| GUI: browser does not open                                    | Open the address shown in the console (`http://127.0.0.1:<port>/?t=…`) manually in the browser. |
+| GUI: "No connection to the export script"                     | The PowerShell window was closed or *Quit* was pressed – start the GUI again. |
 
-## Sicherheitshinweise
+## Security notes
 
-- Der Parameter `-Password` (Klartext) ist nur für Automatisierung gedacht –
-  interaktiv wird das Passwort **verdeckt** abgefragt und nicht gespeichert.
-- Die Zertifikatsprüfung wird für die Firewall-Verbindung deaktiviert, da
-  Sophos Firewalls standardmäßig selbstsignierte Zertifikate verwenden.
-- Die exportierten Dateien enthalten die vollständige Konfiguration
-  (u. a. Regelwerk, Objekte) – entsprechend vertraulich behandeln.
+- The `-Password` parameter (plain text) is intended for automation only –
+  interactively the password is prompted **hidden** and not stored.
+- Certificate validation is disabled for the firewall connection because
+  Sophos Firewalls use self-signed certificates by default.
+- The exported files contain the complete configuration (e.g. rule set,
+  objects) – treat them as confidential.
 
-## Getestet
+## Tested
 
-- Version 2.0: GUI mit PowerShell 7.4 (Linux) und Chromium gegen eine
-  simulierte Sophos-XML-API: Verbindungstest (richtiges/falsches Passwort),
-  Bereichsauswahl, Export als Excel (inkl. HTML-Report) und JSON, Modul mit
-  fehlerhafter Antwort, Beenden; Darstellung hell/dunkel und mobil
-- PowerShell 7.6 (Linux) gegen eine simulierte Sophos-XML-API
-  (Endpunkt `/webconsole/APIController`, SFOS-Antwortformat), inkl.:
-  - interaktiver Ablauf (IP → Zugangsdaten → Menü, Auswahl `1,3-5` und `A`)
-  - falsche Zugangsdaten (3 Versuche, sauberer Abbruch)
-  - ungültige Menüeingaben, nicht erreichbare Firewall, Statuscode 526
-  - Excel-, JSON- und XML-Ausgabe inkl. automatischem Fallback
+- Version 2.0: GUI with PowerShell 7.4 (Linux) and Chromium against a
+  simulated Sophos XML API: connection test (correct/wrong password),
+  section selection, export as Excel (incl. HTML report) and JSON, module
+  with an invalid response, quit; light/dark and mobile layout
+- PowerShell 7.6 (Linux) against a simulated Sophos XML API
+  (endpoint `/webconsole/APIController`, SFOS response format), including:
+  - interactive workflow (IP → credentials → menu, selection `1,3-5` and `A`)
+  - wrong credentials (3 attempts, clean abort)
+  - invalid menu input, unreachable firewall, status code 526
+  - Excel, JSON and XML output incl. automatic fallback

@@ -1,6 +1,0 @@
-﻿{
-    "Name":  "Internet IPv4 group",
-    "Description":  "Unreserved public IP addresses",
-    "HostList.Host":  "Internet IPv4 (1-9), Internet IPv4 (11-126), Internet IPv4 (169-172), Internet IPv4 (192-192.88), Internet IPv4 (192.88-192.167), Internet IPv4 (192.169-198.17), Internet IPv4 (198.20-198.51), Internet IPv4 (198.51-203.0), Internet IPv4 (203.0-223), Internet IPv4 (128-169), Internet IPv4 (192-192.0), Internet IPv4 (172-191)",
-    "IPFamily":  "IPv4"
-}

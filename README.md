@@ -15,6 +15,8 @@ run. Everything is contained in **one single script**.
 `Start-GUI.cmd`) with connection test, point-and-click section selection,
 format selection and live progress per module.
 
+![Graphical interface after an export](docs/screenshots/gui-export-done.png)
+
 ## Features
 
 - **Graphical interface** in the browser (`-Gui`): test the connection, click
@@ -94,6 +96,27 @@ Other parameters are used to pre-fill the form (except the password):
 > random session token with every request (included in the address the
 > script opens) and checks the Host header. Credentials are kept in memory
 > only and are not stored.
+
+### Screenshots
+
+**Start screen** – connection, section selection and output options:
+
+![Start screen](docs/screenshots/gui-start.png)
+
+**Export in progress** – live progress and record count per module:
+
+![Export in progress](docs/screenshots/gui-export-running.png)
+
+**HTML report** – navigation, summary and one table per module:
+
+![HTML report](docs/screenshots/html-report.png)
+
+<table>
+  <tr>
+    <td width="70%"><b>Dark mode</b><br><img src="docs/screenshots/gui-dark.png" alt="Dark mode"></td>
+    <td width="30%"><b>Mobile</b><br><img src="docs/screenshots/gui-mobile.png" alt="Mobile layout"></td>
+  </tr>
+</table>
 
 ## Quick start (console, interactive)
 
